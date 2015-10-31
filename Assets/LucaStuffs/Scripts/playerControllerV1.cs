@@ -2,13 +2,23 @@
 using System.Collections;
 
 
-public class playerController : MonoBehaviour {
+public class playerControllerV1 : MonoBehaviour {
 
     public string verticalAxisName;
     public string horizontalAxisName;
     public string jumpKey;
+    public string dashKey;
     public GameObject[] objBodies;
 
+
+    private float speed=10.0f;
+    private float dashSpeed=50.0f;
+    private float _dashResetTimer=1.5f;
+    private float _dashDurationResetTimer=0.3f;
+    private float hAxisDash, vAxisDash;
+    private float _dashTimer;
+    private float _dashDurationTimer;
+    private bool _dash=false;
     private bool _addTorque = false;
     private float _torqueTimerReset = 0.5f;
     private float _torqueTimer;
@@ -29,17 +39,40 @@ public class playerController : MonoBehaviour {
         for (int i = 0; i < objBodies.Length; i++)
             bodies[i] = objBodies[i].GetComponent<Rigidbody>();
         _playerRigidBody = GetComponent<Rigidbody>();
-
+        _dashTimer = _dashResetTimer;
+        _dashDurationTimer = _dashDurationResetTimer;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        float vPower,hPower,jPower;
+        if(_dashTimer>0)
+        _dashTimer -= Time.deltaTime;
+        float vPower,hPower,jPower,dPower;
         vPower=Input.GetAxis(verticalAxisName);
         hPower=Input.GetAxis(horizontalAxisName);
         jPower = Input.GetAxis(jumpKey);
+        dPower = Input.GetAxis(dashKey);
+        if (dPower > 0 && _dashTimer <= 0&&(hPower!=0||vPower!=0))
+        {
+            _dash = true;
+            hAxisDash = hPower;
+            vAxisDash = vPower;
+        }
+            
+        if (_dash)
+        {
+            Dash();
+            _dashDurationTimer -= Time.deltaTime;
+            if(_dashDurationTimer<=0)
+            {
+                _dash = false;
+                _dashDurationTimer = _dashDurationResetTimer;
+                _dashTimer = _dashResetTimer;
+            }
+        }
+        else
         if(hPower!=0||vPower!=0&&!_isJumping)
-            MovePlayer(hPower,vPower);
+            MovePlayer(hPower,vPower,dPower);
         if (jPower > 0&&!_isJumping)
             Jump();
         /*if(!RendererExtensions.IsVisibleFrom(GetComponent<Renderer>(),Camera.main))
@@ -63,7 +96,7 @@ public class playerController : MonoBehaviour {
            
     }
     //Function that moves the player based on the axis
-    void MovePlayer(float hAxis, float vAxis)
+  /*  void MovePlayer(float hAxis, float vAxis)
     {
         float power,ratio,v;
 
@@ -82,7 +115,17 @@ public class playerController : MonoBehaviour {
            // bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
         }
             
+    }*/
+    void MovePlayer(float hAxis,float vAxis,float dPower)
+    {
+        transform.Translate(new Vector3(-hAxis * Time.fixedDeltaTime* speed, 0.0f, -vAxis * Time.fixedDeltaTime* speed));
     }
+
+    void Dash()
+    {
+        transform.Translate(new Vector3(-hAxisDash * Time.fixedDeltaTime * dashSpeed, 0.0f, -vAxisDash * Time.fixedDeltaTime * dashSpeed));
+    }
+
 
     void Jump()
     {
@@ -99,7 +142,7 @@ public class playerController : MonoBehaviour {
     void OnCollisionStay(Collision col)
     {
         if (col.gameObject.tag == "Player")
-        col.gameObject.GetComponent<playerController>().SetTorque();
+        col.gameObject.GetComponent<playerControllerV1>().SetTorque();
     }
 
     void OnCollisionExit(Collision col)
