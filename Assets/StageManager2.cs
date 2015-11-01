@@ -37,6 +37,12 @@ public class StageManager2 : MonoBehaviour {
                 // set color
                 p.GetComponent<Renderer>().material.color = GameManager.Instance.Players[i].Color;
                 p.name = GameManager.Instance.Players[i].name;
+
+                playerControllerV1 pc = p.GetComponent<playerControllerV1>();
+                pc.horizontalAxisName = "HorizontalP" + (i + 1).ToString();
+                pc.verticalAxisName = "VerticalP" + (i + 1).ToString();
+                pc.jumpKey = "JumpP" + (i + 1).ToString();
+                pc.dashKey = "DashP" + (i + 1).ToString();
             }
             else { Debug.Log("not active"); }
 
