@@ -76,6 +76,7 @@ InputManager:
     negativeButton: 
     positiveButton: left shift
     altNegativeButton: 
+<<<<<<< HEAD
     altPositiveButton: mouse 2
     gravity: 1000
     dead: .00100000005
@@ -205,6 +206,9 @@ InputManager:
     positiveButton: joystick button 1
     altNegativeButton: 
     altPositiveButton: 
+=======
+    altPositiveButton: mouse 0
+>>>>>>> parent of 0db2a25... PlayerMovement update
     gravity: 1000
     dead: .00100000005
     sensitivity: 1000
@@ -213,6 +217,7 @@ InputManager:
     type: 0
     axis: 0
     joyNum: 0
+<<<<<<< HEAD
   - serializedVersion: 3
     m_Name: Fire3
     descriptiveName: 
@@ -293,3 +298,5 @@ InputManager:
     type: 0
     axis: 0
     joyNum: 0
+=======
+>>>>>>> parent of 0db2a25... PlayerMovement update
