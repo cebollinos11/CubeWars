@@ -11,34 +11,27 @@ public class playerControllerV1 : MonoBehaviour {
     public GameObject[] objBodies;
 
 
-    private float speed=10.0f;
-    private float dashSpeed=50.0f;
     private float _dashResetTimer=1.5f;
-    private float _dashDurationResetTimer=0.3f;
+    private float _dashDurationResetTimer=0.2f;
     private float hAxisDash, vAxisDash;
     private float _dashTimer;
     private float _dashDurationTimer;
     private bool _dash=false;
-    private bool _addTorque = false;
-    private float _torqueTimerReset = 0.5f;
-    private float _torqueTimer;
-    private float targetVelocity = 30.0f;
     private bool _isJumping;
     private float _jumpPower = 6.0f;
-    private float _maxForce = 100.0f;
-    private bool _canJump=false;
+    private float power= 10.0f;
+    private float dashPower=50.0f;
     private Rigidbody[] bodies;
     private Vector3 _forward;
     private Vector3 _right;
-    private Rigidbody _playerRigidBody;
     private float _oldDistanceFromMidpoint;
-   
+    private bool _canMove = true;
+    private bool _pressedJump = false;
     // Use this for initialization
 	void Awake () {
         bodies =new Rigidbody[objBodies.Length];
         for (int i = 0; i < objBodies.Length; i++)
             bodies[i] = objBodies[i].GetComponent<Rigidbody>();
-        _playerRigidBody = GetComponent<Rigidbody>();
         _dashTimer = _dashResetTimer;
         _dashDurationTimer = _dashDurationResetTimer;
 	}
@@ -52,18 +45,22 @@ public class playerControllerV1 : MonoBehaviour {
         hPower=Input.GetAxis(horizontalAxisName);
         jPower = Input.GetAxis(jumpKey);
         dPower = Input.GetAxis(dashKey);
-        if (dPower > 0 && _dashTimer <= 0&&(hPower!=0||vPower!=0))
+        if (jPower > 0)
+            _pressedJump = true;
+        else
+            _pressedJump = false;
+        if (dPower > 0 && _dashTimer <= 0&&(hPower!=0||vPower!=0)&&!_isJumping)
         {
             _dash = true;
             hAxisDash = hPower;
             vAxisDash = vPower;
         }
-            
+
         if (_dash)
         {
             Dash();
             _dashDurationTimer -= Time.deltaTime;
-            if(_dashDurationTimer<=0)
+            if (_dashDurationTimer <= 0)
             {
                 _dash = false;
                 _dashDurationTimer = _dashDurationResetTimer;
@@ -71,59 +68,47 @@ public class playerControllerV1 : MonoBehaviour {
             }
         }
         else
-        if(hPower!=0||vPower!=0&&!_isJumping)
-            MovePlayer(hPower,vPower,dPower);
-        if (jPower > 0&&!_isJumping)
-            Jump();
-        /*if(!RendererExtensions.IsVisibleFrom(GetComponent<Renderer>(),Camera.main))
         {
-            _cameraMovement.SetVisible(this.gameObject,false);
-        }else
-            _cameraMovement.SetVisible(this.gameObject, true);*/
+            if (_canMove)
+            {
+                if (hPower != 0 || vPower != 0 && !_isJumping)
+                    MovePlayer(hPower, vPower);
+                if (jPower > 0 && !_isJumping)
+                    Jump();
+            }
+        }
+        
 
 	}
 
-    void FixedUpdate()
+   
+    void MovePlayer(float hAxis, float vAxis)
     {
-        if (_addTorque)
-        {
-            _torqueTimer -= Time.fixedDeltaTime;
-            if (_torqueTimer <= 0)
-                _addTorque = false;
-            for (int i = 0; i < bodies.Length; i++)
-                bodies[i].AddTorque(transform.up*10000000f,ForceMode.VelocityChange); 
-        }
-           
-    }
-    //Function that moves the player based on the axis
-  /*  void MovePlayer(float hAxis, float vAxis)
-    {
-        float power,ratio,v;
-
         for (int i = 0; i < bodies.Length; i++)
         {
-            v = bodies[i].velocity.magnitude;
-            if (v <= 0.01f)
-                v = 0.01f;
-            ratio = targetVelocity / v;
-            ratio = ratio / _maxForce;
+            if(!_isJumping)
+            bodies[i].velocity = new Vector3(hAxis * -power, 0.0f,vAxis * -power);
+          else
             
-            power = Mathf.Lerp(0.0f, _maxForce, ratio);
-            bodies[i].AddForce(Vector3.forward*vAxis*-power);
-            bodies[i].AddForce(Vector3.right * hAxis * -power);
-
-           // bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
+            bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
         }
             
-    }*/
-    void MovePlayer(float hAxis,float vAxis,float dPower)
-    {
-        transform.Translate(new Vector3(-hAxis * Time.fixedDeltaTime* speed, 0.0f, -vAxis * Time.fixedDeltaTime* speed));
     }
+   /* void MovePlayer(float hAxis,float vAxis,float dPower)
+    {
+        transform.Translate(new Vector3(-hAxis * Time.deltaTime* speed, 0.0f, -vAxis * Time.deltaTime* speed));
+    }*/
 
     void Dash()
     {
-        transform.Translate(new Vector3(-hAxisDash * Time.fixedDeltaTime * dashSpeed, 0.0f, -vAxisDash * Time.fixedDeltaTime * dashSpeed));
+
+        for (int i = 0; i < bodies.Length; i++)
+        {
+            bodies[i].velocity = new Vector3(hAxisDash * -dashPower, 0.0f, vAxisDash * -dashPower);
+
+
+            // bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
+        }
     }
 
 
@@ -134,28 +119,36 @@ public class playerControllerV1 : MonoBehaviour {
     }
     void OnCollisionEnter(Collision col)
     {
+        Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "GamePlane")
-        _isJumping = false;
+        {
+            _isJumping = false;
+            _canMove = true;
+        }
+       
 
     }
-
+    bool isDashing()
+    {
+        return _dash;
+    }
     void OnCollisionStay(Collision col)
     {
-        if (col.gameObject.tag == "Player")
-        col.gameObject.GetComponent<playerControllerV1>().SetTorque();
+        
     }
 
     void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.tag == "GamePlane")
+        if (col.gameObject.tag == "GamePlane" && _pressedJump)
+        {
             _isJumping = true;
+        }
+        else
+            if (col.gameObject.tag == "GamePlane" && !_pressedJump)
+            _canMove = false;
+            
         
             
     }
 
-    public void SetTorque()
-    {
-        _torqueTimer = _torqueTimerReset;
-        _addTorque = true;
-    }
 }
