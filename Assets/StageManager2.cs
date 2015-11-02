@@ -46,7 +46,7 @@ public class StageManager2 : MonoBehaviour {
                 pc.dashKey = "DashP" + (i + 1).ToString();
             }
             else { Debug.Log("not active"); }
-
+            
             i++;
 
 

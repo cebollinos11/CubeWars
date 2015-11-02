@@ -10,18 +10,21 @@ public class playerControllerV1 : MonoBehaviour
     public string jumpKey;
     public string dashKey;
     public GameObject[] objBodies;
+    public float _jumpPower = 6.0f;
+    public float _dashResetTimer = 1.5f;
+    public float _dashDurationResetTimer = 0.1f;
+    public float dashPower = 50.0f;
 
-
-    private float _dashResetTimer = 1.5f;
-    private float _dashDurationResetTimer = 0.2f;
+    private bool firstTimeTouch=false;
+    
     private float hAxisDash, vAxisDash;
     private float _dashTimer;
     private float _dashDurationTimer;
     private bool _dash = false;
     private bool _isJumping;
-    private float _jumpPower = 6.0f;
+    
     private float power = 10.0f;
-    private float dashPower = 50.0f;
+    
     private Rigidbody[] bodies;
     private Vector3 _forward;
     private Vector3 _right;
@@ -41,46 +44,53 @@ public class playerControllerV1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Debug.Log(gameObject.name + " is jumping? = " + _isJumping);
         if (_dashTimer > 0)
             _dashTimer -= Time.deltaTime;
-        float vPower, hPower, jPower, dPower;
+        float vPower, hPower;
+        bool jPower, dPower;
         vPower = Input.GetAxis(verticalAxisName);
         hPower = Input.GetAxis(horizontalAxisName);
-        jPower = Input.GetAxis(jumpKey);
-        dPower = Input.GetAxis(dashKey);
-        if (jPower > 0)
-            _pressedJump = true;
-        else
-            _pressedJump = false;
-        if (dPower > 0 && _dashTimer <= 0 && (hPower != 0 || vPower != 0) && !_isJumping)
+        jPower = Input.GetButton(jumpKey);
+        dPower = Input.GetButton(dashKey);
+        if (firstTimeTouch)
         {
-            _dash = true;
-            hAxisDash = hPower;
-            vAxisDash = vPower;
-        }
-
-        if (_dash)
-        {
-            Dash();
-            _dashDurationTimer -= Time.deltaTime;
-            if (_dashDurationTimer <= 0)
+            if (jPower)
+                _pressedJump = true;
+            else
+                _pressedJump = false;
+            if (dPower && _dashTimer <= 0 && (hPower != 0 || vPower != 0) && !_isJumping)
             {
-                _dash = false;
-                _dashDurationTimer = _dashDurationResetTimer;
-                _dashTimer = _dashResetTimer;
+                _dash = true;
+                hAxisDash = hPower;
+                vAxisDash = vPower;
+            }
+
+            if (_dash)
+            {
+                Dash();
+                _dashDurationTimer -= Time.deltaTime;
+                if (_dashDurationTimer <= 0)
+                {
+                    _dash = false;
+                    _dashDurationTimer = _dashDurationResetTimer;
+                    _dashTimer = _dashResetTimer;
+                }
+            }
+            else
+            {
+                if (_canMove)
+                {
+                    if (hPower != 0 || vPower != 0 && !_isJumping)
+                        MovePlayer(hPower, vPower);
+                    else
+                        NullVelocity();
+                    if (jPower && !_isJumping)
+                        Jump();
+                }
             }
         }
-        else
-        {
-            if (_canMove)
-            {
-                if (hPower != 0 || vPower != 0 && !_isJumping)
-                    MovePlayer(hPower, vPower);
-                if (jPower > 0 && !_isJumping)
-                    Jump();
-            }
-        }
-
 
     }
 
@@ -96,6 +106,14 @@ public class playerControllerV1 : MonoBehaviour
                 bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
         }
 
+    }
+    void NullVelocity()
+    {
+        for (int i = 0; i < bodies.Length; i++)
+        {
+            if (!_isJumping)
+                bodies[i].velocity = Vector3.zero;
+        }
     }
     /* void MovePlayer(float hAxis,float vAxis,float dPower)
      {
@@ -120,13 +138,18 @@ public class playerControllerV1 : MonoBehaviour
         for (int i = 0; i < bodies.Length; i++)
             bodies[i].velocity = new Vector3(0, _jumpPower, 0);
     }
+
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "GamePlane")
         {
-            _isJumping = false;
-            _canMove = true;
+            if (!firstTimeTouch)
+                firstTimeTouch = true;
+            if (firstTimeTouch)
+            {
+                _isJumping = false;
+                _canMove = true;
+            }
         }
 
 
@@ -142,15 +165,17 @@ public class playerControllerV1 : MonoBehaviour
 
     void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.tag == "GamePlane" && _pressedJump)
+        if (firstTimeTouch)
         {
-            _isJumping = true;
+            if (col.gameObject.tag == "GamePlane" && _pressedJump)
+            {
+                _isJumping = true;
+            }
+            else
+                if (col.gameObject.tag == "GamePlane" && !_pressedJump)
+                    _canMove = false;
+
         }
-        else
-            if (col.gameObject.tag == "GamePlane" && !_pressedJump)
-            _canMove = false;
-
-
 
     }
 

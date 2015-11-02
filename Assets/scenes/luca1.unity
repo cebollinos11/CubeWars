@@ -285,7 +285,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 553997733}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2438a1f1bc7e7d945b82bd1f75f81508, type: 3}
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 553997733}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f6b5d3ea1cacf546a52c3f2eaf4d8e3, type: 3}
   m_Name: 
@@ -374,7 +374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403108, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -.699999988
       objectReference: {fileID: 0}
     - target: {fileID: 403108, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
       propertyPath: m_LocalPosition.z
@@ -399,6 +399,22 @@ Prefab:
     - target: {fileID: 403108, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422552, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
+      propertyPath: verticalAxisName
+      value: VerticalP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422552, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
+      propertyPath: horizontalAxisName
+      value: HorizontalP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422552, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
+      propertyPath: jumpKey
+      value: JumpP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422552, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
+      propertyPath: dashKey
+      value: DashP1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9393ced13c2f91343ae7662284e27525, type: 2}

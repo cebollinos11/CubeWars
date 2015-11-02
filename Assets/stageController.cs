@@ -68,7 +68,7 @@ public class stageController : Singleton<stageController> {
 	
     void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
 
             StageIsOver();
             //GUIContinue();
@@ -76,7 +76,7 @@ public class stageController : Singleton<stageController> {
 
         //decrease time of stage
         remainingTime -= Time.deltaTime;
-        Debug.Log(remainingTime);
+        //Debug.Log(remainingTime);
         if (remainingTime < 0f) {
             StageIsOver();
         }
