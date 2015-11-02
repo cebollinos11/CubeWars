@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/scenes/map_basic.unity
   - enabled: 1
     path: Assets/scenes/map_mill.unity
+  - enabled: 1
+    path: Assets/scenes/map_shrink.unity

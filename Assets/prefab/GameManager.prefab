@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fa975af20773b4f86a52e4ced5791e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 167710, guid: 38f6d4885a356ef45be57fc44659c4ca, type: 2}
+  PlayerPrefab: {fileID: 162938, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
   PlayerColors:
   - {r: 1, g: .0882353187, b: .0882353187, a: 0}
   - {r: 0, g: 0, b: 1, a: 0}
@@ -53,6 +53,9 @@ MonoBehaviour:
   - name: Mill of death
     description: porquisimo
     levelname: map_mill
+  - name: Shrinking plane
+    description: it shrinks yo
+    levelname: map_shrink
   currentStage:
     name: 
     description: 
