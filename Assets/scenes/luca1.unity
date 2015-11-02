@@ -402,19 +402,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11422552, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
       propertyPath: verticalAxisName
-      value: VerticalP1
+      value: VerticalKB
       objectReference: {fileID: 0}
     - target: {fileID: 11422552, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
       propertyPath: horizontalAxisName
-      value: HorizontalP1
+      value: HorizontalKB
       objectReference: {fileID: 0}
     - target: {fileID: 11422552, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
       propertyPath: jumpKey
-      value: JumpP1
+      value: JumpKB
       objectReference: {fileID: 0}
     - target: {fileID: 11422552, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
       propertyPath: dashKey
-      value: DashP1
+      value: DashKB
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
