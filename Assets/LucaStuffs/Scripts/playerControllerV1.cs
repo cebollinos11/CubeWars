@@ -24,7 +24,6 @@ public class playerControllerV1 : MonoBehaviour
     private bool _isJumping;
     
     private float power = 10.0f;
-    
     private Rigidbody[] bodies;
     private Vector3 _forward;
     private Vector3 _right;
@@ -45,7 +44,6 @@ public class playerControllerV1 : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(gameObject.name + " is jumping? = " + _isJumping);
         if (_dashTimer > 0)
             _dashTimer -= Time.deltaTime;
         float vPower, hPower;
@@ -178,5 +176,13 @@ public class playerControllerV1 : MonoBehaviour
         }
 
     }
+    public void ApplyForce(Vector3 force)
+    {
+        for (int i = 0; i < bodies.Length; i++)
+            bodies[i].AddForce(force);
+    }
+   
+
+
 
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GamePlane
   - MusicObject
+  - Fan
+  - PatrolPoint
   layers:
   - Default
   - TransparentFX
