@@ -8,6 +8,10 @@ public class stageController : Singleton<stageController> {
     private StageManager2 SM;
     private string stageStatus = "";
 
+    //time related
+    public float stageLength;
+    private float remainingTime;
+
     void PauseGame() {
         Time.timeScale = 0;
         //GameManager.Instance.
@@ -21,6 +25,8 @@ public class stageController : Singleton<stageController> {
 
 	// Use this for initialization
 	void Start () {
+
+        remainingTime = stageLength;
         StartStage();
         
 	}
@@ -67,6 +73,14 @@ public class stageController : Singleton<stageController> {
             StageIsOver();
             //GUIContinue();
         }	
+
+        //decrease time of stage
+        remainingTime -= Time.deltaTime;
+        Debug.Log(remainingTime);
+        if (remainingTime < 0f) {
+            StageIsOver();
+        }
+
 	}
 
     public void ClosedInstructionsPanel() {        

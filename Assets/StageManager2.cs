@@ -3,7 +3,8 @@ using System.Collections;
 
 public class StageManager2 : MonoBehaviour {
 
-    public Transform[] SpawnList;    
+    public Transform[] SpawnList;
+    
 
 	// Use this for initialization
 	void Start () {       
