@@ -35,7 +35,7 @@ public class GUIManager : Singleton<GUIManager> {
     public void StageOverButtonPressed() {
 
         EndOfRoundPanel.SetActive(false);
-        Application.LoadLevel("TitleScreen");
+        MainMenu.SetActive(true);
     }
 	
 	// Update is called once per frame
