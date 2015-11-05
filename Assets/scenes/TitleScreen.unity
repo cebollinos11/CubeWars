@@ -276,7 +276,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11494476, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+    - target: {fileID: 11418462, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1067684851}
+    - target: {fileID: 11466798, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1067684851}
@@ -284,22 +288,14 @@ Prefab:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1067684851}
+    - target: {fileID: 11494476, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1067684851}
     - target: {fileID: 11461754, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1067684851}
-    - target: {fileID: 11466798, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1067684851}
-    - target: {fileID: 11418462, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1067684851}
-    - target: {fileID: 22498172, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -13
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
   m_IsPrefabParent: 0
@@ -310,10 +306,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 466962, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -344,23 +336,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466962, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
       propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: PlayerPrefab
-      value: 
-      objectReference: {fileID: 162938, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[2].name
-      value: Shrinking plane
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[2].description
-      value: it shrinks yo
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[2].levelname
-      value: map_shrink
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}

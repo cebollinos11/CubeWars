@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2304748}
   - 54: {fileID: 5476512}
   - 114: {fileID: 11422552}
+  - 114: {fileID: 11498742}
   m_Layer: 0
   m_Name: PlayerCubePrefab
   m_TagString: Player
@@ -111,6 +112,18 @@ MonoBehaviour:
   _dashResetTimer: 1
   _dashDurationResetTimer: .0500000007
   dashPower: 100
+--- !u!114 &11498742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79730dbb2311fb84eac2b4051223b33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  i: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

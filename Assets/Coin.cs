@@ -23,6 +23,11 @@ public class Coin : MonoBehaviour {
 
 
         if (Other.gameObject.tag == "Player") {
+
+            Other.gameObject.GetComponent<PointsManager>().GivePoints(1);
+            //GUIManager.Instance.LiveScores.GetComponent<LiveScores>().UpdateCounters();
+            
+            GUIManager.Instance.UpdateLiveScores();
             Destroy(transform.parent.gameObject);
         }
     

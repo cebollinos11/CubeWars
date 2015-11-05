@@ -9,6 +9,9 @@ public class GUIManager : Singleton<GUIManager> {
     public GameObject InstructionsPanel;
     public GameObject EndOfRoundPanel;
     public Text EndOfRoundScoreText;
+    public GameObject LiveScores;
+    
+    private LiveScores LiveScoresScript;
 
 	// Use this for initialization
 	void Start () {
@@ -23,9 +26,14 @@ public class GUIManager : Singleton<GUIManager> {
         }
         StageSelector.value = 1;
         StageSelector.value = 0;
-        
+
+        LiveScoresScript = LiveScores.GetComponent<LiveScores>();
 	
 	}
+
+    public void ShowLiveScores() {
+        LiveScores.SetActive(true);
+    }
 
     public void CloseInstructionsPanel() {
         InstructionsPanel.SetActive(false);
@@ -35,15 +43,15 @@ public class GUIManager : Singleton<GUIManager> {
     public void StageOverButtonPressed() {
 
         EndOfRoundPanel.SetActive(false);
-
-        
-        Destroy(GameManager.Instance);
-        
-        Application.LoadLevel("TitleScreen");
+        GameManager.Instance.LoadRandomStage();
     }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+    public void UpdateLiveScores() {
+        LiveScoresScript.UpdateCounters();
+    }
 }

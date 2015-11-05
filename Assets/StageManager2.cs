@@ -44,6 +44,11 @@ public class StageManager2 : MonoBehaviour {
                 pc.verticalAxisName = "VerticalP" + (i + 1).ToString();
                 pc.jumpKey = "JumpP" + (i + 1).ToString();
                 pc.dashKey = "DashP" + (i + 1).ToString();
+
+                //asign to game manager
+                GameManager.Instance.Players[i].playerObject = p;
+                p.GetComponent<PointsManager>().i = i;
+                
             }
             else { Debug.Log("not active"); }
             

@@ -11,7 +11,7 @@ public class Player {
     public string name = "";
     public Color Color;
     public int id;
-    
+    public GameObject playerObject;
     
 
     public Player(int setId) {
@@ -109,4 +109,19 @@ public class GameManager : Singleton<GameManager> {
         GUIManager.Instance.MainMenu.SetActive(false);
         //GUIManager.Instance.InstructionsPanel.SetActive(true);
     }
+
+    public void LoadRandomStage() {
+
+
+        int stageIndex = Random.Range(0,_StagesDB.Count);
+
+        currentStage = _StagesDB[stageIndex];
+        string lvlname = _StagesDB[stageIndex].levelname;
+        DontDestroyOnLoad(gameObject);
+        Debug.Log("trying to load " + lvlname);
+        Application.LoadLevel(lvlname);
+        GUIManager.Instance.MainMenu.SetActive(false);
+    
+    }
+
 }

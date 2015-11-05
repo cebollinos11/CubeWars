@@ -40,14 +40,13 @@ public class stageController : Singleton<stageController> {
     
     }
     void StartGeneration() {
-
         SM.BuildStage();
         stageStatus = "showing_instructions";
         GUIManager.Instance.InstructionsPanel.SetActive(true);
         PauseGame();
         Debug.Log("setting stagestatus to - " + stageStatus);
         ShowInstructions();
-
+        GUIManager.Instance.ShowLiveScores();
     }
     void ShowInstructions() {
 
@@ -103,8 +102,11 @@ public class stageController : Singleton<stageController> {
             int NewAccumulatedScore = P.AccumulatedScore + P.CurrentSceneScore;
             S.text += P.name + ":\t" + P.AccumulatedScore.ToString() + "\t+\t" + P.CurrentSceneScore.ToString() + "\t=\t" + NewAccumulatedScore.ToString();
             P.AccumulatedScore = NewAccumulatedScore;
+            P.CurrentSceneScore = 0;
             S.text += "\n";
         }
+
+        GUIManager.Instance.UpdateLiveScores();
     
     }
 
