@@ -14,6 +14,7 @@ public class playerControllerV1 : MonoBehaviour
     public float _dashResetTimer = 1.5f;
     public float _dashDurationResetTimer = 0.1f;
     public float dashPower = 50.0f;
+    public float stunTimerReset = 0.2f;
 
     private bool firstTimeTouch=false;
     
@@ -22,7 +23,8 @@ public class playerControllerV1 : MonoBehaviour
     private float _dashDurationTimer;
     private bool _dash = false;
     private bool _isJumping;
-    
+    private bool _stunned = false;
+    private float _stunTimer;
     private float power = 10.0f;
     private Rigidbody[] bodies;
     private Vector3 _forward;
@@ -30,7 +32,11 @@ public class playerControllerV1 : MonoBehaviour
     private float _oldDistanceFromMidpoint;
     private bool _canMove = true;
     private bool _pressedJump = false;
+    [SerializeField]
+    float max_speed;
     // Use this for initialization
+
+    
     void Awake()
     {
         bodies = new Rigidbody[objBodies.Length];
@@ -41,11 +47,11 @@ public class playerControllerV1 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         if (_dashTimer > 0)
-            _dashTimer -= Time.deltaTime;
+            _dashTimer -= Time.fixedDeltaTime;
         float vPower, hPower;
         bool jPower, dPower;
         vPower = Input.GetAxis(verticalAxisName);
@@ -68,7 +74,7 @@ public class playerControllerV1 : MonoBehaviour
             if (_dash)
             {
                 Dash();
-                _dashDurationTimer -= Time.deltaTime;
+                _dashDurationTimer -= Time.fixedDeltaTime;
                 if (_dashDurationTimer <= 0)
                 {
                     _dash = false;
@@ -80,14 +86,44 @@ public class playerControllerV1 : MonoBehaviour
             {
                 if (_canMove)
                 {
-                    if (hPower != 0 || vPower != 0 && !_isJumping)
-                        MovePlayer(hPower, vPower);
-                    else
-                        NullVelocity();
-                    if (jPower && !_isJumping)
-                        Jump();
+                    if (!_stunned)
+                    {
+                        if (hPower != 0 || vPower != 0 && !_isJumping)
+                            MovePlayer(hPower, vPower);
+                        //else
+                        //    NullVelocity();
+                        if (jPower && !_isJumping)
+                            Jump();
+                    }else
+                    {
+                        _stunTimer -= Time.fixedDeltaTime;
+                        if (_stunTimer <= 0)
+                            _stunned = false;
+                    }
+                    
                 }
             }
+        }
+
+
+
+
+        for (int i = 0; i < bodies.Length; i++)
+        {
+            if (bodies[i].velocity.magnitude > max_speed)
+            {
+                bodies[i].velocity = bodies[i].velocity.normalized * max_speed;
+            }
+        }
+
+        if (_stunned) {
+
+            for (int i = 0; i < bodies.Length; i++)
+            {
+                bodies[i].velocity /= 1.02f;
+            }
+        
+        
         }
 
     }
@@ -100,8 +136,8 @@ public class playerControllerV1 : MonoBehaviour
             if (!_isJumping)
                 bodies[i].velocity = new Vector3(hAxis * -power, 0.0f, vAxis * -power);
             else
-
-                bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
+                //bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
+                bodies[i].velocity = new Vector3(hAxis * -power, bodies[i].velocity.y, vAxis * -power);
         }
 
     }
@@ -134,7 +170,7 @@ public class playerControllerV1 : MonoBehaviour
     void Jump()
     {
         for (int i = 0; i < bodies.Length; i++)
-            bodies[i].velocity = new Vector3(0, _jumpPower, 0);
+            bodies[i].velocity = new Vector3(bodies[i].velocity.x, _jumpPower, bodies[i].velocity.z);
     }
 
     void OnCollisionEnter(Collision col)
@@ -149,16 +185,46 @@ public class playerControllerV1 : MonoBehaviour
                 _canMove = true;
             }
         }
-
+        else
+            if(col.gameObject.tag=="Player")
+            {
+                if (firstTimeTouch)
+                {
+                    if(isDashing()&&!col.gameObject.GetComponent<playerControllerV1>().isDashing())
+                    {
+                        Vector3 impulse =(col.gameObject.GetComponent<Transform>().position- GetComponent<Transform>().position)*dashPower*0.0000001f;
+                        col.gameObject.GetComponent<playerControllerV1>().ApplyForce(impulse);
+                        col.gameObject.GetComponent<playerControllerV1>().StunByDash();
+                    }
+                }
+            }
 
     }
-    bool isDashing()
+    public bool isDashing()
     {
         return _dash;
     }
+
+    public void StunByDash()
+    {
+        _stunned = true;
+        _stunTimer = stunTimerReset;
+    }
+
     void OnCollisionStay(Collision col)
     {
-
+        if (col.gameObject.tag == "Player")
+        {
+            if (firstTimeTouch)
+            {
+                if (isDashing() && !col.gameObject.GetComponent<playerControllerV1>().isDashing())
+                {
+                    Vector3 impulse = (col.gameObject.GetComponent<Transform>().position - GetComponent<Transform>().position) * dashPower * 0.0000001f;
+                    col.gameObject.GetComponent<playerControllerV1>().ApplyForce(impulse);
+                    col.gameObject.GetComponent<playerControllerV1>().StunByDash();
+                }
+            }
+        }
     }
 
     void OnCollisionExit(Collision col)
@@ -173,13 +239,17 @@ public class playerControllerV1 : MonoBehaviour
                 if (col.gameObject.tag == "GamePlane" && !_pressedJump)
                     _canMove = false;
 
+
+
+            Debug.Log("ASDASDSA is jumping: "+_isJumping+" /// _canmove: "+_canMove);
+
         }
 
     }
     public void ApplyForce(Vector3 force)
     {
         for (int i = 0; i < bodies.Length; i++)
-            bodies[i].AddForce(force);
+            bodies[i].velocity+=force;
     }
    
 

@@ -56,6 +56,9 @@ MonoBehaviour:
   - name: Shrinking plane
     description: it shrinks yo
     levelname: map_shrink
+  - name: Cement Madness
+    description: it moves man!!
+    levelname: map_cement
   currentStage:
     name: 
     description: 

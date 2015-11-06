@@ -15,3 +15,7 @@ EditorBuildSettings:
     path: Assets/scenes/map_mill.unity
   - enabled: 1
     path: Assets/scenes/map_shrink.unity
+  - enabled: 1
+    path: Assets/scenes/map_cement.unity
+  - enabled: 1
+    path: Assets/scenes/map_fan.unity
