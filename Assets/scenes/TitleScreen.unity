@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 6c022d0b99a9a8f42b3bd76ccead9d66, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -157,6 +157,7 @@ GameObject:
   - 92: {fileID: 589470883}
   - 124: {fileID: 589470882}
   - 81: {fileID: 589470881}
+  - 114: {fileID: 589470886}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -231,6 +232,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &589470886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 589470880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ced270213546141b31d64cb7b11d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotSpeed: 1
 --- !u!114 &1067684851 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce,
@@ -276,11 +289,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11418462, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1067684851}
-    - target: {fileID: 11466798, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+    - target: {fileID: 11494476, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1067684851}
@@ -288,7 +297,11 @@ Prefab:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1067684851}
-    - target: {fileID: 11494476, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+    - target: {fileID: 11466798, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1067684851}
+    - target: {fileID: 11418462, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1067684851}
