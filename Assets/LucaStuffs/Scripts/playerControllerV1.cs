@@ -141,7 +141,7 @@ public class playerControllerV1 : MonoBehaviour
         }
 
     }
-    void NullVelocity()
+    public void NullVelocity()
     {
         for (int i = 0; i < bodies.Length; i++)
         {

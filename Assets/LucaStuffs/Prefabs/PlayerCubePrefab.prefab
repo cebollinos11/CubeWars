@@ -14,6 +14,7 @@ GameObject:
   - 54: {fileID: 5476512}
   - 114: {fileID: 11422552}
   - 114: {fileID: 11498742}
+  - 114: {fileID: 11436540}
   m_Layer: 0
   m_Name: PlayerCubePrefab
   m_TagString: Player
@@ -114,6 +115,19 @@ MonoBehaviour:
   dashPower: 100
   stunTimerReset: .5
   max_speed: 50
+--- !u!114 &11436540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efcc2adc60aa0764385c402480b5848a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalPos: {x: 0, y: 0, z: 0}
+  pointsToGive: 2
 --- !u!114 &11498742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +174,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: max_speed
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pointsToGive
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

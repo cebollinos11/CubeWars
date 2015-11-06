@@ -28,6 +28,9 @@ public class stageController : Singleton<stageController> {
 
         remainingTime = stageLength;
         StartStage();
+
+        //set the skybox
+        RenderSettings.skybox = GameManager.Instance.skybox;
         
 	}
 

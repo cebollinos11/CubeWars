@@ -48,6 +48,9 @@ public class StageManager2 : MonoBehaviour {
                 //asign to game manager
                 GameManager.Instance.Players[i].playerObject = p;
                 p.GetComponent<PointsManager>().i = i;
+
+                //respawner
+                p.GetComponent<Respawner>().originalPos = SpawnPoint.position;
                 
             }
             else { Debug.Log("not active"); }

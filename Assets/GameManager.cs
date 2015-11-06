@@ -46,6 +46,8 @@ public class GameManager : Singleton<GameManager> {
     public List<StageClass> _StagesDB;
     public StageClass currentStage;
 
+    public Material skybox;
+
 	// Use this for initialization
 	void Start () {
 
