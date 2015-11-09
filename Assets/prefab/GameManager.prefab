@@ -43,12 +43,12 @@ MonoBehaviour:
   PlayerColors:
   - {r: 1, g: .0882353187, b: .0882353187, a: 0}
   - {r: 0, g: 0, b: 1, a: 0}
-  - {r: 0, g: 1, b: 0, a: 0}
-  - {r: .358999997, g: .477999985, b: 0, a: 0}
+  - {r: 0, g: .741379321, b: 0, a: 0}
+  - {r: 1, g: .838235259, b: 0, a: 0}
   stageController: {fileID: 0}
   _StagesDB:
   - name: BasicMap
-    description: porco
+    description: "ajsidahsi dahsoidh asihdiasodhnaisd\xE6ia siasdiasdiadiashdiashdoa"
     levelname: map_basic
   - name: Mill of death
     description: porquisimo
@@ -59,6 +59,12 @@ MonoBehaviour:
   - name: Cement Madness
     description: it moves man!!
     levelname: map_cement
+  - name: Fan tastic
+    description: hahahah
+    levelname: map_fan
+  - name: King of the Hill
+    description: be the king
+    levelname: map_king
   currentStage:
     name: 
     description: 

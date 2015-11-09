@@ -16,8 +16,8 @@ public class playerControllerV1 : MonoBehaviour
     public float dashPower = 50.0f;
     public float stunTimerReset = 0.2f;
 
-    private bool firstTimeTouch=false;
-    
+    private bool firstTimeTouch = false;
+
     private float hAxisDash, vAxisDash;
     private float _dashTimer;
     private float _dashDurationTimer;
@@ -36,7 +36,7 @@ public class playerControllerV1 : MonoBehaviour
     float max_speed;
     // Use this for initialization
 
-    
+
     void Awake()
     {
         bodies = new Rigidbody[objBodies.Length];
@@ -94,13 +94,14 @@ public class playerControllerV1 : MonoBehaviour
                         //    NullVelocity();
                         if (jPower && !_isJumping)
                             Jump();
-                    }else
+                    }
+                    else
                     {
                         _stunTimer -= Time.fixedDeltaTime;
                         if (_stunTimer <= 0)
                             _stunned = false;
                     }
-                    
+
                 }
             }
         }
@@ -116,14 +117,15 @@ public class playerControllerV1 : MonoBehaviour
             }
         }
 
-        if (_stunned) {
+        if (_stunned)
+        {
 
             for (int i = 0; i < bodies.Length; i++)
             {
                 bodies[i].velocity /= 1.02f;
             }
-        
-        
+
+
         }
 
     }
@@ -186,13 +188,13 @@ public class playerControllerV1 : MonoBehaviour
             }
         }
         else
-            if(col.gameObject.tag=="Player")
+            if (col.gameObject.tag == "Player")
             {
                 if (firstTimeTouch)
                 {
-                    if(isDashing()&&!col.gameObject.GetComponent<playerControllerV1>().isDashing())
+                    if (isDashing() && !col.gameObject.GetComponent<playerControllerV1>().isDashing())
                     {
-                        Vector3 impulse =(col.gameObject.GetComponent<Transform>().position- GetComponent<Transform>().position)*dashPower*0.0000001f;
+                        Vector3 impulse = (col.gameObject.GetComponent<Transform>().position - GetComponent<Transform>().position) * dashPower * 0.0000001f;
                         col.gameObject.GetComponent<playerControllerV1>().ApplyForce(impulse);
                         col.gameObject.GetComponent<playerControllerV1>().StunByDash();
                     }
@@ -241,7 +243,7 @@ public class playerControllerV1 : MonoBehaviour
 
 
 
-            Debug.Log("ASDASDSA is jumping: "+_isJumping+" /// _canmove: "+_canMove);
+            Debug.Log("ASDASDSA is jumping: " + _isJumping + " /// _canmove: " + _canMove);
 
         }
 
@@ -249,9 +251,9 @@ public class playerControllerV1 : MonoBehaviour
     public void ApplyForce(Vector3 force)
     {
         for (int i = 0; i < bodies.Length; i++)
-            bodies[i].velocity+=force;
+            bodies[i].velocity += force;
     }
-   
+
 
 
 
