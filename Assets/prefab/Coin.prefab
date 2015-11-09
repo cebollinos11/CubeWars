@@ -265,8 +265,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.48225212, y: 1, z: 1}
-  m_Center: {x: -.027449131, y: 2.98023224e-08, z: 0}
+  m_Size: {x: 2.48225212, y: 1.11232209, z: 1}
+  m_Center: {x: -.0274658203, y: -.0561666191, z: 0}
 --- !u!108 &10820946
 Light:
   m_ObjectHideFlags: 1
@@ -376,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyToFollow: {fileID: 174314}
   RotationSpeed: 100
+  lowGravity: 1
 --- !u!135 &13539636
 SphereCollider:
   m_ObjectHideFlags: 1
