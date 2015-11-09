@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 466962}
   - 114: {fileID: 11483128}
+  - 114: {fileID: 11436410}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -28,6 +29,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11436410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef39740800e63b54d93f337b1607f1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioList:
+  - type: 0
+    clip: {fileID: 8300000, guid: 1623b52a12dc9cf40a3e92063eadd572, type: 3}
+  - type: 1
+    clip: {fileID: 8300000, guid: f1209d025862f1c4fb2799ea1510d217, type: 3}
+  - type: 3
+    clip: {fileID: 8300000, guid: 852d7afc3ee50f44a89a1bb05c9af6ae, type: 3}
+  - type: 4
+    clip: {fileID: 8300000, guid: 7ed31b0b9667b9d4483b612b61d65aae, type: 3}
 --- !u!114 &11483128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -39,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fa975af20773b4f86a52e4ced5791e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 162938, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
+  PlayerPrefab: {fileID: 190638, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
   PlayerColors:
   - {r: 1, g: .0882353187, b: .0882353187, a: 0}
   - {r: 0, g: 0, b: 1, a: 0}
