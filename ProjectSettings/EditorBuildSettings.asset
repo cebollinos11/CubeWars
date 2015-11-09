@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/scenes/map_fan.unity
   - enabled: 1
     path: Assets/scenes/map_king.unity
+  - enabled: 1
+    path: Assets/scenes/map_2towers.unity

@@ -159,6 +159,9 @@ MonoBehaviour:
   - name: King of the Hill
     description: be the king
     levelname: map_king
+  - name: Two towers
+    description: Jump to get them!!
+    levelname: map_2towers
   currentStage:
     name: 
     description: 

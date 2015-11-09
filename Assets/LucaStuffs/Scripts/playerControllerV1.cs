@@ -65,7 +65,7 @@ public class playerControllerV1 : MonoBehaviour
                 _pressedJump = true;
             else
                 _pressedJump = false;
-            if (dPower && _dashTimer <= 0 && (hPower != 0 || vPower != 0) && !_isJumping)
+            if (dPower && _dashTimer <= 0 && (hPower != 0 || vPower != 0))
             {
                 _dash = true;
                 hAxisDash = hPower;
@@ -176,6 +176,7 @@ public class playerControllerV1 : MonoBehaviour
 
     void Jump()
     {
+        AudioManager.PlayClip(AudioClipsType.Jump);
         _particleManager.playJumpParticle();
         for (int i = 0; i < bodies.Length; i++)
             bodies[i].velocity = new Vector3(bodies[i].velocity.x, _jumpPower, bodies[i].velocity.z);
@@ -255,7 +256,7 @@ public class playerControllerV1 : MonoBehaviour
 
 
 
-            Debug.Log("ASDASDSA is jumping: " + _isJumping + " /// _canmove: " + _canMove);
+            //Debug.Log("ASDASDSA is jumping: " + _isJumping + " /// _canmove: " + _canMove);
 
         }
 

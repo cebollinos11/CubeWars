@@ -51,7 +51,7 @@ public class ParticleManager : MonoBehaviour {
 
     public void playJumpParticle()
     {
-        AudioManager.PlayClip(AudioClipsType.Jump);
+        
         Vector3 position;
         position =transform.position;
         position.y -=0.4f;
