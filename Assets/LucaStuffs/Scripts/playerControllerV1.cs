@@ -13,11 +13,11 @@ public class playerControllerV1 : MonoBehaviour
     public float _jumpPower = 6.0f;
     public float _dashResetTimer = 1.5f;
     public float _dashDurationResetTimer = 0.1f;
-    public float dashPower = 50.0f;
+    public float dashPower = 100.0f;
     public float stunTimerReset = 0.2f;
 
     private bool firstTimeTouch = false;
-
+    private ParticleManager _particleManager;
     private float hAxisDash, vAxisDash;
     private float _dashTimer;
     private float _dashDurationTimer;
@@ -44,6 +44,7 @@ public class playerControllerV1 : MonoBehaviour
             bodies[i] = objBodies[i].GetComponent<Rigidbody>();
         _dashTimer = _dashResetTimer;
         _dashDurationTimer = _dashDurationResetTimer;
+        _particleManager = GetComponent<ParticleManager>();
     }
 
     // Update is called once per frame
@@ -80,6 +81,7 @@ public class playerControllerV1 : MonoBehaviour
                     _dash = false;
                     _dashDurationTimer = _dashDurationResetTimer;
                     _dashTimer = _dashResetTimer;
+                    _particleManager.stopDashParticle();
                 }
             }
             else
@@ -158,7 +160,7 @@ public class playerControllerV1 : MonoBehaviour
 
     void Dash()
     {
-
+        _particleManager.playDashParticle(new Vector3(hAxisDash * -dashPower, 0.0f, vAxisDash * -dashPower));
         for (int i = 0; i < bodies.Length; i++)
         {
             bodies[i].velocity = new Vector3(hAxisDash * -dashPower, 0.0f, vAxisDash * -dashPower);
@@ -166,11 +168,15 @@ public class playerControllerV1 : MonoBehaviour
 
             // bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
         }
+       
     }
+
+
 
 
     void Jump()
     {
+        _particleManager.playJumpParticle();
         for (int i = 0; i < bodies.Length; i++)
             bodies[i].velocity = new Vector3(bodies[i].velocity.x, _jumpPower, bodies[i].velocity.z);
     }
@@ -183,6 +189,7 @@ public class playerControllerV1 : MonoBehaviour
                 firstTimeTouch = true;
             if (firstTimeTouch)
             {
+                _particleManager.stopJumpParticle();
                 _isJumping = false;
                 _canMove = true;
             }
@@ -192,6 +199,10 @@ public class playerControllerV1 : MonoBehaviour
             {
                 if (firstTimeTouch)
                 {
+                if (!isDashing() && !col.gameObject.GetComponent<playerControllerV1>().isDashing())
+                    _particleManager.playClashParticle(col.contacts[0].point);
+                else
+                    _particleManager.playClashDashParticle(col.contacts[0].point);
                     if (isDashing() && !col.gameObject.GetComponent<playerControllerV1>().isDashing())
                     {
                         Vector3 impulse = (col.gameObject.GetComponent<Transform>().position - GetComponent<Transform>().position) * dashPower * 0.0000001f;
@@ -235,6 +246,7 @@ public class playerControllerV1 : MonoBehaviour
         {
             if (col.gameObject.tag == "GamePlane" && _pressedJump)
             {
+
                 _isJumping = true;
             }
             else

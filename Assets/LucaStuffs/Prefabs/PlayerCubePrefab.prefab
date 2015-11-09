@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &190638
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +31,7 @@ GameObject:
   - 114: {fileID: 11423592}
   - 114: {fileID: 11458926}
   - 114: {fileID: 11487336}
+  - 114: {fileID: 11445274}
   m_Layer: 0
   m_Name: PlayerCubePrefab
   m_TagString: Player
@@ -45,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 280.762573, y: 274.055115, z: -52.8144608}
+  m_LocalPosition: {x: -6.41716528, y: 1.61000001, z: 10.2953329}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 479498}
@@ -164,10 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22fbdba6656c77c42bd0b12b913b0750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalAxisName: 
-  horizontalAxisName: 
-  jumpKey: 
-  dashKey: 
+  verticalAxisName: VerticalKB
+  horizontalAxisName: HorizontalKB
+  jumpKey: JumpKB
+  dashKey: DashKB
   objBodies:
   - {fileID: 190638}
   _jumpPower: 20
@@ -176,6 +177,21 @@ MonoBehaviour:
   dashPower: 100
   stunTimerReset: .5
   max_speed: 50
+--- !u!114 &11445274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004a8f9e6fbc4b344a95c3b1006519ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashEffect: {fileID: 100000, guid: e840ebf9e10804cc7a1bb453752a4923, type: 2}
+  jumpEffect: {fileID: 101416, guid: 3b282a0da1240a34ab7e176c3e348066, type: 2}
+  clashEffect: {fileID: 100000, guid: 3c1f0555cc3fd4e1d87382fbaa007f8f, type: 2}
+  clashDashEffect: {fileID: 100000, guid: 8e1dcf1924b1945fcaab73df0affd2ab, type: 2}
 --- !u!114 &11458926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,7 +223,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: clashDashEffect
+      value: 
+      objectReference: {fileID: 100000, guid: 8e1dcf1924b1945fcaab73df0affd2ab, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190638}
