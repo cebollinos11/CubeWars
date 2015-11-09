@@ -34,6 +34,7 @@ public class ParticleManager : MonoBehaviour {
     {
             _dashEffectInstance.GetComponent<Transform>().LookAt(-dashDirection);
             _dashEffectInstance.SetActive(true);
+            AudioManager.PlayClip(AudioClipsType.Dash);
         
     }
 
@@ -50,6 +51,7 @@ public class ParticleManager : MonoBehaviour {
 
     public void playJumpParticle()
     {
+        AudioManager.PlayClip(AudioClipsType.Jump);
         Vector3 position;
         position =transform.position;
         position.y -=0.4f;
@@ -64,12 +66,14 @@ public class ParticleManager : MonoBehaviour {
 
     public void playClashParticle(Vector3 position)
     {
+        AudioManager.PlayClip(AudioClipsType.Clash);
         _clashEffectInstance = (GameObject)GameObject.Instantiate(clashEffect, position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
         Invoke("destroyClashParticle", 0.5f);
     }
 
     public void playClashDashParticle(Vector3 position)
     {
+        AudioManager.PlayClip(AudioClipsType.ClashDash);
         _clashEffectInstance = (GameObject)GameObject.Instantiate(clashDashEffect, position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
         Invoke("destroyClashParticle", 0.5f);
     }

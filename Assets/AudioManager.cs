@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public enum AudioClipsType
 {
-    Jump,Dash,Spawn,Clash,GetCoin
+    Jump,Dash,Spawn,Clash,ClashDash,GetCoin
 }
 
 
