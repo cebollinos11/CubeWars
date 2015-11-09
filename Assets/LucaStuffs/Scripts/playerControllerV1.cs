@@ -168,7 +168,7 @@ public class playerControllerV1 : MonoBehaviour
 
             // bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
         }
-       
+
     }
 
 
@@ -197,21 +197,21 @@ public class playerControllerV1 : MonoBehaviour
         }
         else
             if (col.gameObject.tag == "Player")
+        {
+            if (firstTimeTouch)
             {
-                if (firstTimeTouch)
-                {
                 if (!isDashing() && !col.gameObject.GetComponent<playerControllerV1>().isDashing())
                     _particleManager.playClashParticle(col.contacts[0].point);
                 else
                     _particleManager.playClashDashParticle(col.contacts[0].point);
-                    if (isDashing() && !col.gameObject.GetComponent<playerControllerV1>().isDashing())
-                    {
-                        Vector3 impulse = (col.gameObject.GetComponent<Transform>().position - GetComponent<Transform>().position) * dashPower * 0.0000001f;
-                        col.gameObject.GetComponent<playerControllerV1>().ApplyForce(impulse);
-                        col.gameObject.GetComponent<playerControllerV1>().StunByDash();
-                    }
+                if (isDashing() && !col.gameObject.GetComponent<playerControllerV1>().isDashing())
+                {
+                    Vector3 impulse = (col.gameObject.GetComponent<Transform>().position - GetComponent<Transform>().position) * dashPower * 0.0000001f;
+                    col.gameObject.GetComponent<playerControllerV1>().ApplyForce(impulse);
+                    col.gameObject.GetComponent<playerControllerV1>().StunByDash();
                 }
             }
+        }
 
     }
     public bool isDashing()
@@ -252,7 +252,7 @@ public class playerControllerV1 : MonoBehaviour
             }
             else
                 if (col.gameObject.tag == "GamePlane" && !_pressedJump)
-                    _canMove = false;
+                _canMove = false;
 
 
 
