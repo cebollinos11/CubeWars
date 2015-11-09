@@ -24,6 +24,8 @@ public class Coin : MonoBehaviour {
 
         if (Other.gameObject.tag == "Player") {
 
+            AudioManager.PlayClip(AudioClipsType.GetCoin);
+
             Other.gameObject.GetComponent<PointsManager>().GivePoints(1);
             //GUIManager.Instance.LiveScores.GetComponent<LiveScores>().UpdateCounters();
             
