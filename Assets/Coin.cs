@@ -13,6 +13,8 @@ public class Coin : MonoBehaviour {
     private float superCoinProbability = 20;
 	// Use this for initialization
 	void Start () {
+
+        AudioManager.PlayClip(AudioClipsType.RespawnCoin);
         OriginalDistanceVector = BodyToFollow.transform.position - transform.position;
         rigidBodyMaster = BodyToFollow.GetComponent<Rigidbody>();
 

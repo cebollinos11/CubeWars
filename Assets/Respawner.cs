@@ -27,8 +27,9 @@ public class Respawner : MonoBehaviour {
 
         GetComponent<playerControllerV1>().NullVelocity();
         transform.position = originalPos;
+        //AudioManager.PlayClip(AudioClipsType.RespawnPlayer);
 
-
+        //give points on kill
         foreach (Player p in GameManager.Instance.Players)
         {
             if(p.playerObject.name != transform.name)

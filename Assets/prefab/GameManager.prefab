@@ -122,6 +122,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 9378593f0c7d239459c8992315e3d0d6, type: 3}
   - type: 4
     clip: {fileID: 8300000, guid: 852d7afc3ee50f44a89a1bb05c9af6ae, type: 3}
+  - type: 6
+    clip: {fileID: 8300000, guid: 3d5f1044bc46b2b46a852dba476bc212, type: 3}
   - type: 5
     clip: {fileID: 8300000, guid: 7ed31b0b9667b9d4483b612b61d65aae, type: 3}
 --- !u!114 &11483128
@@ -155,15 +157,12 @@ MonoBehaviour:
   - name: Cement Madness
     description: it moves man!!
     levelname: map_cement
-  - name: Fan tastic
-    description: hahahah
-    levelname: map_fan
-  - name: King of the Hill
-    description: be the king
-    levelname: map_king
   - name: Two towers
     description: Jump to get them!!
     levelname: map_2towers
+  - name: King of the Hill
+    description: be the king
+    levelname: map_king
   currentStage:
     name: 
     description: 
