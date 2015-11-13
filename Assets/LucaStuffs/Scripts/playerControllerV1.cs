@@ -155,7 +155,6 @@ public class playerControllerV1 : MonoBehaviour
     {
         for (int i = 0; i < bodies.Length; i++)
         {
-            if (!_isJumping)
                 bodies[i].velocity = new Vector3(hAxis * -power*inversionFlag, bodies[i].velocity.y, vAxis * -power*inversionFlag);
         }
 

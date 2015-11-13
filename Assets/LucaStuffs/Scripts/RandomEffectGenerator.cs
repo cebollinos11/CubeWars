@@ -27,7 +27,7 @@ public class RandomEffectGenerator : MonoBehaviour
         {
             int index;
             if (_playerControllers.Length > 1)
-                index = (int)Random.Range(0, (_playerControllers.Length - 1) * 1000) % (_playerControllers.Length - 1);
+                index = (int)Random.Range(0, (_playerControllers.Length - 1) * 1000) % (_playerControllers.Length);
             else
                 index = (int)Random.Range(0, (_playerControllers.Length - 1) * 1000);
             switch ((int)Random.Range(0,1000)%3)
