@@ -9,6 +9,8 @@ TagManager:
   - Fan
   - PatrolPoint
   - Tower
+  - Fire
+  - Crown
   layers:
   - Default
   - TransparentFX
