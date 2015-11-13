@@ -172,7 +172,7 @@ public class playerControllerV1 : MonoBehaviour
 
     void Dash()
     {
-       // _particleManager.playDashParticle(new Vector3(hAxisDash * -dashPower, 0.0f, vAxisDash * -dashPower));
+        _particleManager.playDashParticle(new Vector3(hAxisDash * -dashPower, 0.0f, vAxisDash * -dashPower));
         for (int i = 0; i < bodies.Length; i++)
         {
             bodies[i].velocity = new Vector3(hAxisDash * -dashPower*inversionFlag, 0.0f, vAxisDash * -dashPower*inversionFlag);
@@ -185,7 +185,7 @@ public class playerControllerV1 : MonoBehaviour
 
     void Jump()
     {
-        //AudioManager.PlayClip(AudioClipsType.Jump);
+        AudioManager.PlayClip(AudioClipsType.Jump);
         _particleManager.playJumpParticle();
         for (int i = 0; i < bodies.Length; i++)
             bodies[i].velocity = new Vector3(bodies[i].velocity.x, _jumpPower, bodies[i].velocity.z);
