@@ -417,10 +417,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.size
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 466962, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -452,18 +448,6 @@ Prefab:
     - target: {fileID: 466962, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[6].name
-      value: Two towers
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[6].description
-      value: Jump to get them!!
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[6].levelname
-      value: map_2towers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}

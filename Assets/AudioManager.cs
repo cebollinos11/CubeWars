@@ -19,6 +19,9 @@ public class AudioManager : Singleton<AudioManager> {
         public AudioClipsType type;
         public AudioClip clip;
     }
+
+    [SerializeField]
+    List<AudioClip> backgroundSongs;
     
     public List<AudioType> audioList = new List<AudioType>();
     Dictionary<AudioClipsType,AudioClip> audioMap = new Dictionary<AudioClipsType,AudioClip>();
@@ -26,6 +29,11 @@ public class AudioManager : Singleton<AudioManager> {
     public static void PlayClip(AudioClipsType type) {
         Instance.mainAudioSource.PlayOneShot(Instance.audioMap[type]);
 
+    }
+
+    public static void PlayBgSong() {
+        Instance.mainAudioSource.PlayOneShot(Instance.backgroundSongs[0]);
+    
     }
 
 	// Use this for initialization
@@ -37,6 +45,8 @@ public class AudioManager : Singleton<AudioManager> {
 
 	
 	}
+
+    
 	
 	
 }

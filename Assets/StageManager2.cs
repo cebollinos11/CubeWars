@@ -18,6 +18,7 @@ public class StageManager2 : MonoBehaviour {
 
     public void BuildStage() {
 
+        AudioManager.PlayBgSong();
         Debug.Log("Spawning chars");
         SpawnCharacters();
         

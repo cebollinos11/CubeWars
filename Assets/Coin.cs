@@ -8,10 +8,21 @@ public class Coin : MonoBehaviour {
     public bool lowGravity = true;
     private Vector3 OriginalDistanceVector;
     private Rigidbody rigidBodyMaster;
+    private int points = 1;
+
+    private float superCoinProbability = 25;
 	// Use this for initialization
 	void Start () {
         OriginalDistanceVector = BodyToFollow.transform.position - transform.position;
         rigidBodyMaster = BodyToFollow.GetComponent<Rigidbody>();
+
+        if (Random.Range(0, 100)<superCoinProbability) {
+
+            transform.parent.localScale *= 3;
+            transform.parent.GetChild(0).localScale *= 3;
+            points += 4;
+        
+        }
 	}
 	
 	// Update is called once per frame
@@ -34,7 +45,7 @@ public class Coin : MonoBehaviour {
 
             AudioManager.PlayClip(AudioClipsType.GetCoin);
 
-            Other.gameObject.GetComponent<PointsManager>().GivePoints(1);
+            Other.gameObject.GetComponent<PointsManager>().GivePoints(points);
             //GUIManager.Instance.LiveScores.GetComponent<LiveScores>().UpdateCounters();
             
             GUIManager.Instance.UpdateLiveScores();

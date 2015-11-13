@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef39740800e63b54d93f337b1607f1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundSongs:
+  - {fileID: 8300000, guid: f1873d06ce040fd429b379592a840b1d, type: 3}
   audioList:
   - type: 0
     clip: {fileID: 8300000, guid: 1623b52a12dc9cf40a3e92063eadd572, type: 3}

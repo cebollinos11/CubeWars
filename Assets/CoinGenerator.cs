@@ -19,6 +19,6 @@ public class CoinGenerator : MonoBehaviour {
 
     void Spawn() {
         Instantiate(ObjectToSpawn,transform.position,transform.rotation);
-        Invoke("Spawn", WaitTime + Random.Range(1, 5));
+        Invoke("Spawn", WaitTime);
     }
 }
