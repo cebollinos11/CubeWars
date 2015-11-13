@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class LiveScores : MonoBehaviour {
 
     public GameObject[] Counter;
+    public Text TimeCounter;
+    public int TimeCounterValue;
 	// Use this for initialization
 	void Start () {
 
@@ -21,8 +23,13 @@ public class LiveScores : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        //TimeCounter.text = 
+        	
 	}
+
+    public void SetTimeCounter(int i) {
+        TimeCounter.text = i.ToString();
+    }
 
     public void UpdateCounters() {
 

@@ -11,7 +11,7 @@ public class GUIManager : Singleton<GUIManager> {
     public Text EndOfRoundScoreText;
     public GameObject LiveScores;
     
-    private LiveScores LiveScoresScript;
+    public LiveScores LiveScoresScript;
 
 	// Use this for initialization
 	void Start () {

@@ -78,6 +78,9 @@ public class stageController : Singleton<stageController> {
 
         //decrease time of stage
         remainingTime -= Time.deltaTime;
+
+        GUIManager.Instance.LiveScoresScript.SetTimeCounter((int)remainingTime);
+
         //Debug.Log(remainingTime);
         if (remainingTime < 0f) {
             StageIsOver();
