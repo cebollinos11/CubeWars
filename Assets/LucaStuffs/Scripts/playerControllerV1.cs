@@ -16,6 +16,7 @@ public class playerControllerV1 : MonoBehaviour
     public float dashPower = 100.0f;
     public float stunTimerReset = 0.2f;
 
+    private float inversionFlag=1.0f;
     private bool firstTimeTouch = false;
     private ParticleManager _particleManager;
     private float hAxisDash, vAxisDash;
@@ -31,7 +32,10 @@ public class playerControllerV1 : MonoBehaviour
     private Vector3 _right;
     private float _oldDistanceFromMidpoint;
     private bool _canMove = true;
-    private bool _pressedJump = false;
+    private bool dashJumpInverted=false;
+    private bool _scale = false;
+    private Vector3 _newScale;
+    private float _scaleTimer=0f;
     [SerializeField]
     float max_speed;
     // Use this for initialization
@@ -46,25 +50,44 @@ public class playerControllerV1 : MonoBehaviour
         _dashDurationTimer = _dashDurationResetTimer;
         _particleManager = GetComponent<ParticleManager>();
     }
-
+    void Update()
+    {
+        if (_scale)
+        {
+            _scaleTimer += Time.deltaTime / 100;
+            transform.localScale = Vector3.Lerp(transform.localScale, _newScale, _scaleTimer);
+            if (_scaleTimer >= 1)
+            {
+                _scale = false;
+                _scaleTimer = 0;
+            }
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        
         if (_dashTimer > 0)
             _dashTimer -= Time.fixedDeltaTime;
         float vPower, hPower;
         bool jPower, dPower;
         vPower = Input.GetAxis(verticalAxisName);
         hPower = Input.GetAxis(horizontalAxisName);
-        jPower = Input.GetButton(jumpKey);
-        dPower = Input.GetButton(dashKey);
+        string jKey, dKey;
+        if(!dashJumpInverted)
+        {
+            jKey = jumpKey;
+            dKey = dashKey;
+        }
+        else
+        {
+            jKey = dashKey;
+            dKey = jumpKey;
+        }
+        jPower = Input.GetButton(jKey);
+        dPower = Input.GetButton(dKey);
         if (firstTimeTouch)
         {
-            if (jPower)
-                _pressedJump = true;
-            else
-                _pressedJump = false;
             if (dPower && _dashTimer <= 0 && (hPower != 0 || vPower != 0))
             {
                 _dash = true;
@@ -86,14 +109,10 @@ public class playerControllerV1 : MonoBehaviour
             }
             else
             {
-                if (_canMove)
-                {
                     if (!_stunned)
                     {
                         if (hPower != 0 || vPower != 0 && !_isJumping)
                             MovePlayer(hPower, vPower);
-                        //else
-                        //    NullVelocity();
                         if (jPower && !_isJumping)
                             Jump();
                     }
@@ -104,7 +123,6 @@ public class playerControllerV1 : MonoBehaviour
                             _stunned = false;
                     }
 
-                }
             }
         }
 
@@ -138,10 +156,7 @@ public class playerControllerV1 : MonoBehaviour
         for (int i = 0; i < bodies.Length; i++)
         {
             if (!_isJumping)
-                bodies[i].velocity = new Vector3(hAxis * -power, 0.0f, vAxis * -power);
-            else
-                //bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
-                bodies[i].velocity = new Vector3(hAxis * -power, bodies[i].velocity.y, vAxis * -power);
+                bodies[i].velocity = new Vector3(hAxis * -power*inversionFlag, bodies[i].velocity.y, vAxis * -power*inversionFlag);
         }
 
     }
@@ -153,20 +168,14 @@ public class playerControllerV1 : MonoBehaviour
                 bodies[i].velocity = Vector3.zero;
         }
     }
-    /* void MovePlayer(float hAxis,float vAxis,float dPower)
-     {
-         transform.Translate(new Vector3(-hAxis * Time.deltaTime* speed, 0.0f, -vAxis * Time.deltaTime* speed));
-     }*/
+
 
     void Dash()
     {
-        _particleManager.playDashParticle(new Vector3(hAxisDash * -dashPower, 0.0f, vAxisDash * -dashPower));
+       // _particleManager.playDashParticle(new Vector3(hAxisDash * -dashPower, 0.0f, vAxisDash * -dashPower));
         for (int i = 0; i < bodies.Length; i++)
         {
-            bodies[i].velocity = new Vector3(hAxisDash * -dashPower, 0.0f, vAxisDash * -dashPower);
-
-
-            // bodies[i].AddForce(new Vector3(hAxis * -power, 0, vAxis * -power));
+            bodies[i].velocity = new Vector3(hAxisDash * -dashPower*inversionFlag, 0.0f, vAxisDash * -dashPower*inversionFlag);
         }
 
     }
@@ -176,7 +185,7 @@ public class playerControllerV1 : MonoBehaviour
 
     void Jump()
     {
-        AudioManager.PlayClip(AudioClipsType.Jump);
+        //AudioManager.PlayClip(AudioClipsType.Jump);
         _particleManager.playJumpParticle();
         for (int i = 0; i < bodies.Length; i++)
             bodies[i].velocity = new Vector3(bodies[i].velocity.x, _jumpPower, bodies[i].velocity.z);
@@ -192,7 +201,6 @@ public class playerControllerV1 : MonoBehaviour
             {
                 _particleManager.stopJumpParticle();
                 _isJumping = false;
-                _canMove = true;
             }
         }
         else
@@ -245,14 +253,12 @@ public class playerControllerV1 : MonoBehaviour
     {
         if (firstTimeTouch)
         {
-            if (col.gameObject.tag == "GamePlane" && _pressedJump)
+            if (col.gameObject.tag == "GamePlane" )
             {
 
                 _isJumping = true;
             }
-            else
-                if (col.gameObject.tag == "GamePlane" && !_pressedJump)
-                _canMove = false;
+
 
 
 
@@ -267,7 +273,20 @@ public class playerControllerV1 : MonoBehaviour
             bodies[i].velocity += force;
     }
 
+    public void InvertControls()
+    {
+        inversionFlag *= -1;
+    }
 
-
-
+    public void InvertDashJump()
+    {
+        dashJumpInverted = !dashJumpInverted;
+    }
+    
+    public void ScaleIt(float scale)
+    {
+        _scale = true;
+        _newScale = new Vector3(scale, scale, scale);
+        GetComponent<Transform>().localScale =new Vector3(scale,scale, scale);
+    }
 }
