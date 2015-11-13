@@ -11,7 +11,7 @@ public class EnemyCementController : MonoBehaviour {
     public float _pushSpeed;
     private Rigidbody _body;
     private int _index;
-    
+    private ParticleManager _particleManager;
 
 
 	void Awake () {
@@ -19,10 +19,12 @@ public class EnemyCementController : MonoBehaviour {
         _target = patrolPoints[_index];
         _body = GetComponent<Rigidbody>();
         _speed = _normalSpeed;
+         _particleManager = GetComponent<ParticleManager>();
+    
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (!_pursue)
         {
             _index++;
@@ -35,7 +37,8 @@ public class EnemyCementController : MonoBehaviour {
                 _target = patrolPoints[_index];
         }
         Debug.Log(_target.name);
-        _body.velocity = (_target.GetComponent<Transform>().position - GetComponent<Transform>().position)* _speed;
+
+        _body.velocity = (_target.transform.position - transform.position)* _speed*Time.fixedDeltaTime;
 	}
     void OnTriggerEnter(Collider col)
     {
@@ -63,7 +66,12 @@ public class EnemyCementController : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Player")
+        {
             _speed = _pushSpeed;
+            col.gameObject.GetComponent<playerControllerV1>().StunByDash();
+            _particleManager.playClashParticle(col.contacts[0].point);
+        }
+           
     }
     void OnCollisionExit(Collision col)
     {

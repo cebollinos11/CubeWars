@@ -8,6 +8,7 @@ TagManager:
   - MusicObject
   - Fan
   - PatrolPoint
+  - Tower
   layers:
   - Default
   - TransparentFX

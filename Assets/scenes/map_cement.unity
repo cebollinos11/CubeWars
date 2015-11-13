@@ -486,7 +486,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 483876, guid: 093629e839c6ac344a9e6ce70a2f3f5b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.6400001
+      value: 3.21000004
       objectReference: {fileID: 0}
     - target: {fileID: 483876, guid: 093629e839c6ac344a9e6ce70a2f3f5b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -528,10 +528,6 @@ Prefab:
       propertyPath: patrolPoints.Array.data[3]
       value: 
       objectReference: {fileID: 310471890}
-    - target: {fileID: 11401804, guid: 093629e839c6ac344a9e6ce70a2f3f5b, type: 2}
-      propertyPath: _normalSpeed
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 093629e839c6ac344a9e6ce70a2f3f5b, type: 2}
   m_IsPrefabParent: 0

@@ -10,7 +10,7 @@ public class Coin : MonoBehaviour {
     private Rigidbody rigidBodyMaster;
     private int points = 1;
 
-    private float superCoinProbability = 25;
+    private float superCoinProbability = 20;
 	// Use this for initialization
 	void Start () {
         OriginalDistanceVector = BodyToFollow.transform.position - transform.position;

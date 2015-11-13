@@ -36,6 +36,7 @@ public class playerControllerV1 : MonoBehaviour
     private bool _scale = false;
     private Vector3 _newScale;
     private float _scaleTimer=0f;
+    private bool jPower;
     [SerializeField]
     float max_speed;
     // Use this for initialization
@@ -70,7 +71,7 @@ public class playerControllerV1 : MonoBehaviour
         if (_dashTimer > 0)
             _dashTimer -= Time.fixedDeltaTime;
         float vPower, hPower;
-        bool jPower, dPower;
+        bool  dPower;
         vPower = Input.GetAxis(verticalAxisName);
         hPower = Input.GetAxis(horizontalAxisName);
         string jKey, dKey;
@@ -119,8 +120,16 @@ public class playerControllerV1 : MonoBehaviour
                     else
                     {
                         _stunTimer -= Time.fixedDeltaTime;
+                        transform.Rotate(new Vector3(0f, 5f, 0f));
+                        if(GetComponent<Rigidbody>().freezeRotation)
+                        GetComponent<Rigidbody>().freezeRotation = false;
                         if (_stunTimer <= 0)
+                        {
                             _stunned = false;
+                            transform.rotation = Quaternion.identity;
+                            GetComponent<Rigidbody>().freezeRotation = true;
+                        }
+                            
                     }
 
             }
@@ -192,17 +201,15 @@ public class playerControllerV1 : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "GamePlane")
-        {
+
             if (!firstTimeTouch)
                 firstTimeTouch = true;
-            if (firstTimeTouch)
+            if (firstTimeTouch && (col.gameObject.transform.position.y<transform.position.y||col.gameObject.tag=="Tower"))
             {
                 _particleManager.stopJumpParticle();
                 _isJumping = false;
             }
-        }
-        else
+
             if (col.gameObject.tag == "Player")
         {
             if (firstTimeTouch)
@@ -252,9 +259,8 @@ public class playerControllerV1 : MonoBehaviour
     {
         if (firstTimeTouch)
         {
-            if (col.gameObject.tag == "GamePlane" )
+            if (col.gameObject.tag == "GamePlane" || col.gameObject.tag == "Tower" || jPower)
             {
-
                 _isJumping = true;
             }
 

@@ -14,6 +14,7 @@ GameObject:
   - 135: {fileID: 13527638}
   - 54: {fileID: 5469398}
   - 114: {fileID: 11401804}
+  - 114: {fileID: 11481144}
   m_Layer: 0
   m_Name: CementCube
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .539558411, y: -.130375385, z: -.558446884}
-  m_LocalScale: {x: 2.05438662, y: 2.05438685, z: 2.05438685}
+  m_LocalPosition: {x: .119999997, y: 3.21000004, z: 5.60112238}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -107,8 +108,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _normalSpeed: 1
-  _pushSpeed: 8
+  _normalSpeed: 50
+  _pushSpeed: 800
+--- !u!114 &11481144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004a8f9e6fbc4b344a95c3b1006519ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashEffect: {fileID: 132018, guid: e32f9e73b9bb37b49a488fd0c980a442, type: 2}
+  jumpEffect: {fileID: 101416, guid: 3b282a0da1240a34ab7e176c3e348066, type: 2}
+  clashEffect: {fileID: 100000, guid: 3c1f0555cc3fd4e1d87382fbaa007f8f, type: 2}
+  clashDashEffect: {fileID: 100000, guid: 8e1dcf1924b1945fcaab73df0affd2ab, type: 2}
 --- !u!135 &13527638
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -134,8 +150,28 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _normalSpeed
-      value: 1
+      value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _pushSpeed
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: dashEffect
+      value: 
+      objectReference: {fileID: 132018, guid: e32f9e73b9bb37b49a488fd0c980a442, type: 2}
+    - target: {fileID: 0}
+      propertyPath: jumpEffect
+      value: 
+      objectReference: {fileID: 101416, guid: 3b282a0da1240a34ab7e176c3e348066, type: 2}
+    - target: {fileID: 0}
+      propertyPath: clashEffect
+      value: 
+      objectReference: {fileID: 100000, guid: 3c1f0555cc3fd4e1d87382fbaa007f8f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: clashDashEffect
+      value: 
+      objectReference: {fileID: 100000, guid: 8e1dcf1924b1945fcaab73df0affd2ab, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129194}

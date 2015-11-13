@@ -300,6 +300,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 29.1945744
       objectReference: {fileID: 0}
+    - target: {fileID: 125310, guid: 3b5b2564b4ad43d4984e7d9ced3871d7, type: 2}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b5b2564b4ad43d4984e7d9ced3871d7, type: 2}
   m_IsPrefabParent: 0
@@ -408,7 +412,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11451878, guid: a0f56715f0778704db7aea20ffb0b863, type: 2}
       propertyPath: WaitTime
-      value: .100000001
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0f56715f0778704db7aea20ffb0b863, type: 2}
@@ -467,6 +471,14 @@ Prefab:
     - target: {fileID: 125310, guid: 3b5b2564b4ad43d4984e7d9ced3871d7, type: 2}
       propertyPath: m_Name
       value: Basic (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305096, guid: 3b5b2564b4ad43d4984e7d9ced3871d7, type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 125310, guid: 3b5b2564b4ad43d4984e7d9ced3871d7, type: 2}
+      propertyPath: m_TagString
+      value: Tower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b5b2564b4ad43d4984e7d9ced3871d7, type: 2}

@@ -337,6 +337,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 6.36584234
       objectReference: {fileID: 0}
+    - target: {fileID: 125310, guid: 3b5b2564b4ad43d4984e7d9ced3871d7, type: 2}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b5b2564b4ad43d4984e7d9ced3871d7, type: 2}
   m_IsPrefabParent: 0
@@ -487,7 +491,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11451878, guid: a0f56715f0778704db7aea20ffb0b863, type: 2}
       propertyPath: WaitTime
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0f56715f0778704db7aea20ffb0b863, type: 2}
