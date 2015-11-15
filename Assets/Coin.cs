@@ -30,13 +30,9 @@ public class Coin : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
        // transform.position = new Vector3( BodyToFollow.transform.position.x,BodyToFollow.transform.position.y+1,BodyToFollow.transform.position.z);
-        transform.position = BodyToFollow.transform.position - OriginalDistanceVector;
+        transform.position = BodyToFollow.transform.position- OriginalDistanceVector;
         transform.Rotate(0,  Time.deltaTime*RotationSpeed,0);
 
-        if (lowGravity) {
-            rigidBodyMaster.velocity = new Vector3(rigidBodyMaster.velocity.x, rigidBodyMaster.velocity.y + 0.8f, rigidBodyMaster.velocity.z);
-            
-        }
 	
 	}
 

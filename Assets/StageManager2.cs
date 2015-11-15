@@ -29,6 +29,9 @@ public class StageManager2 : MonoBehaviour {
     {
         
         var i = 0;
+
+        Player winPlayer = GameManager.Instance.GetWinningPlayer();
+
         foreach (Transform SpawnPoint in SpawnList)
         {
             Debug.Log("Spawning char");
@@ -52,6 +55,14 @@ public class StageManager2 : MonoBehaviour {
 
                 //respawner
                 p.GetComponent<Respawner>().originalPos = SpawnPoint.position;
+
+                if(winPlayer!= null)                
+                    if (winPlayer == GameManager.Instance.Players[i])
+                    {
+                        p.transform.FindChild("Crown").gameObject.SetActive(true);
+                    }
+
+               
                 
             }
             else { Debug.Log("not active"); }

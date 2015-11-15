@@ -70,6 +70,33 @@ public class GameManager : Singleton<GameManager> {
         
 
 	}
+
+
+    public Player GetWinningPlayer(){
+
+        int bestPoint,index=0;
+        bestPoint = Players[0].AccumulatedScore;
+        for (int i = 1; i < Players.Length; i++)
+        {
+           if(Players[i].AccumulatedScore>bestPoint)
+           {
+               bestPoint = Players[i].AccumulatedScore;
+               index = i;
+           }
+        }
+
+        for (int i = 0; i < Players.Length; i++)
+        {
+            if(i!=index)
+            if (Players[i].AccumulatedScore == bestPoint)
+                return null;
+        }
+
+        Debug.Log("winner player " + Players[index].name);
+        return Players[index];
+   
+    }
+
 	
 	// Update is called once per frame
 	void Update () {
