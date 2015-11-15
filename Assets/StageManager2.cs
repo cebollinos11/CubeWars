@@ -62,6 +62,28 @@ public class StageManager2 : MonoBehaviour {
                         p.transform.FindChild("Crown").gameObject.SetActive(true);
                     }
 
+                //set trail renderer color
+                TrailRenderer tR = p.GetComponent<TrailRenderer>();
+                tR.material.SetColor("_Color",GameManager.Instance.Players[i].Color);
+
+
+                
+
+                var so = new UnityEditor.SerializedObject(tR);
+
+                Color colorToSet = GameManager.Instance.Players[i].Color;
+
+                colorToSet.a = 1f;
+
+
+                so.FindProperty("m_Colors.m_Color[0]").colorValue = colorToSet;
+                so.FindProperty("m_Colors.m_Color[1]").colorValue = colorToSet;
+                so.FindProperty("m_Colors.m_Color[2]").colorValue = colorToSet;
+                so.FindProperty("m_Colors.m_Color[3]").colorValue = colorToSet;
+                so.FindProperty("m_Colors.m_Color[4]").colorValue = colorToSet;
+
+                so.ApplyModifiedProperties();
+
                
                 
             }

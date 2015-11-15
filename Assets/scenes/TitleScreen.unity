@@ -282,7 +282,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -47, y: 0}
+  m_AnchoredPosition: {x: -47, y: 50}
   m_SizeDelta: {x: 160, y: 78.7399979}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1199764276
@@ -500,10 +500,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 466962, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -535,46 +531,6 @@ Prefab:
     - target: {fileID: 466962, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[1].name
-      value: King of the Hill
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[1].description
-      value: Coins only spawn in the central platform!!
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[5].name
-      value: King of the Hill
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[5].description
-      value: be the king
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[5].levelname
-      value: map_king
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[0].description
-      value: Push other cubes and collect coins!
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[2].description
-      value: It shrinks!
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[3].description
-      value: Collect coins while you evade the ROCK!
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[4].description
-      value: Climb the walls and jump across to get the coins!
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
-      propertyPath: _StagesDB.Array.data[1].levelname
-      value: map_king
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}

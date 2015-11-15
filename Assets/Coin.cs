@@ -14,7 +14,7 @@ public class Coin : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        AudioManager.PlayClip(AudioClipsType.RespawnCoin);
+        //AudioManager.PlayClip(AudioClipsType.RespawnCoin);
         OriginalDistanceVector = BodyToFollow.transform.position - transform.position;
         Debug.Log("original distance is " + OriginalDistanceVector.ToString());
         rigidBodyMaster = BodyToFollow.GetComponent<Rigidbody>();
@@ -33,6 +33,11 @@ public class Coin : MonoBehaviour {
        // transform.position = new Vector3( BodyToFollow.transform.position.x,BodyToFollow.transform.position.y+1,BodyToFollow.transform.position.z);
         transform.position = BodyToFollow.transform.position- OriginalDistanceVector;
         transform.Rotate(0,  Time.deltaTime*RotationSpeed,0);
+
+        if (transform.position.y < -100) {
+
+            Destroy(transform.parent.gameObject);
+        }
 
 	
 	}

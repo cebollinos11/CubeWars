@@ -25,6 +25,7 @@ public class Respawner : MonoBehaviour {
 
     void Respawn() {
 
+        AudioManager.PlayClip(AudioClipsType.RespawnCoin);
         GetComponent<playerControllerV1>().NullVelocity();
         transform.position = originalPos;
         //AudioManager.PlayClip(AudioClipsType.RespawnPlayer);
@@ -32,8 +33,8 @@ public class Respawner : MonoBehaviour {
         //give points on kill
         foreach (Player p in GameManager.Instance.Players)
         {
-            if(p.playerObject.name != transform.name)
-                p.playerObject.GetComponent<PointsManager>().GivePoints(pointsToGive);
+            if(p.playerObject.name == transform.name)
+                p.playerObject.GetComponent<PointsManager>().GivePoints(-1);
         }
         
 
