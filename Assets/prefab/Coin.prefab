@@ -376,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyToFollow: {fileID: 174314}
   RotationSpeed: 100
-  lowGravity: 1
+  lowGravity: 0
 --- !u!135 &13539636
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -407,6 +407,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lowGravity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

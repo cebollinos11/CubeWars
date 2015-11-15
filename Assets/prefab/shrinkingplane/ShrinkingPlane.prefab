@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab2eb601b3028349addc3b9e9a038c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  howOftenItShrinks: 4
+  howOftenItShrinks: 8
   howMuchItShrinks: .100000001
 --- !u!1001 &100100000
 Prefab:
@@ -227,7 +227,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: howOftenItShrinks
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 197890}

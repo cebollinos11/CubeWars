@@ -139,8 +139,24 @@ public class GameManager : Singleton<GameManager> {
         //GUIManager.Instance.InstructionsPanel.SetActive(true);
     }
 
-    public void LoadRandomStage() {
 
+    void TEST() { Debug.Log("TESTSTA"); }
+    public void QueueNextLevel()
+    { //method to fix ui bug
+        Debug.Log("QUEUE");
+
+        Invoke("LoadRandomStage", 0.0f);
+    }
+
+    public void LoadRandomStage() {
+        Debug.Log("LoadRandom executed");
+        //stop all audio
+        AudioManager.StopAll();
+
+        //clean ui bugg
+
+        
+        //GUIManager.Instance.EndOfRoundPanel.SetActive(false);
 
         int stageIndex = Random.Range(0,_StagesDB.Count);
 

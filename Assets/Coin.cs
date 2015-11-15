@@ -16,6 +16,7 @@ public class Coin : MonoBehaviour {
 
         AudioManager.PlayClip(AudioClipsType.RespawnCoin);
         OriginalDistanceVector = BodyToFollow.transform.position - transform.position;
+        Debug.Log("original distance is " + OriginalDistanceVector.ToString());
         rigidBodyMaster = BodyToFollow.GetComponent<Rigidbody>();
 
         if (Random.Range(0, 100)<superCoinProbability) {

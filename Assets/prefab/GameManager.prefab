@@ -146,23 +146,20 @@ MonoBehaviour:
   stageController: {fileID: 0}
   _StagesDB:
   - name: BasicMap
-    description: "ajsidahsi dahsoidh asihdiasodhnaisd\xE6ia siasdiasdiadiashdiashdoa"
+    description: Push other cubes and collect coins!
     levelname: map_basic
-  - name: Mill of death
-    description: porquisimo
-    levelname: map_mill
+  - name: King of the Hill
+    description: Coins only spawn in the central platform!!
+    levelname: map_king
   - name: Shrinking plane
-    description: it shrinks yo
+    description: It shrinks!
     levelname: map_shrink
   - name: Cement Madness
-    description: it moves man!!
+    description: Collect coins while you evade the ROCK!
     levelname: map_cement
   - name: Two towers
-    description: Jump to get them!!
+    description: Climb the walls and jump across to get the coins!
     levelname: map_2towers
-  - name: King of the Hill
-    description: be the king
-    levelname: map_king
   currentStage:
     name: 
     description: 

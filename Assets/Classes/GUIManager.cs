@@ -40,10 +40,15 @@ public class GUIManager : Singleton<GUIManager> {
         GameManager.Instance.stageController.ClosedInstructionsPanel();
     }
 
+    
     public void StageOverButtonPressed() {
 
+        
+
+        GameManager.Instance.QueueNextLevel();
         EndOfRoundPanel.SetActive(false);
-        GameManager.Instance.LoadRandomStage();
+
+        //GameManager.Instance.LoadRandomStage();
     }
 	
 	// Update is called once per frame

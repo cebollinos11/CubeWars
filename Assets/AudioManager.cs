@@ -36,6 +36,10 @@ public class AudioManager : Singleton<AudioManager> {
     
     }
 
+    public static void StopAll() {
+        Instance.mainAudioSource.Stop();
+    }
+
 	// Use this for initialization
 	void Start () {
         mainAudioSource = transform.GetComponent<AudioSource>();

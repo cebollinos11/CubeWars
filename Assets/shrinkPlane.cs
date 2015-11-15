@@ -39,7 +39,9 @@ public class shrinkPlane : MonoBehaviour {
             return;
         }
 
+        AudioManager.PlayClip(AudioClipsType.ClashDash);
         gameObject.transform.localScale += new Vector3(shrinkRatio,0f,shrinkRatio);
+        //transform.Rotate(Vector3.up, 45f);
     
     }
 }
