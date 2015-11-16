@@ -110,10 +110,9 @@ public class stageController : Singleton<stageController> {
         foreach (Player P in GameManager.Instance.Players)
         {
 
-            int NewAccumulatedScore = P.AccumulatedScore + P.CurrentSceneScore;
-            S.text += P.name + ":\t" + P.AccumulatedScore.ToString() + "\t+\t" + P.CurrentSceneScore.ToString() + "\t=\t" + NewAccumulatedScore.ToString();
-            P.AccumulatedScore = NewAccumulatedScore;
-            P.CurrentSceneScore = 0;
+            
+            S.text += P.name + " :\t" + P.CurrentSceneScore.ToString();           
+           
             S.text += "\n";
         }
 

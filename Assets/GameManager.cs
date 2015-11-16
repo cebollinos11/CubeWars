@@ -75,12 +75,12 @@ public class GameManager : Singleton<GameManager> {
     public Player GetWinningPlayer(){
 
         int bestPoint,index=0;
-        bestPoint = Players[0].AccumulatedScore;
+        bestPoint = Players[0].CurrentSceneScore;
         for (int i = 1; i < Players.Length; i++)
         {
-           if(Players[i].AccumulatedScore>bestPoint)
+            if (Players[i].CurrentSceneScore > bestPoint)
            {
-               bestPoint = Players[i].AccumulatedScore;
+               bestPoint = Players[i].CurrentSceneScore;
                index = i;
            }
         }
@@ -88,7 +88,7 @@ public class GameManager : Singleton<GameManager> {
         for (int i = 0; i < Players.Length; i++)
         {
             if(i!=index)
-            if (Players[i].AccumulatedScore == bestPoint)
+                if (Players[i].CurrentSceneScore == bestPoint)
                 return null;
         }
 
