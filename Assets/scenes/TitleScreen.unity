@@ -392,6 +392,26 @@ Prefab:
       propertyPath: TimeCounter
       value: 
       objectReference: {fileID: 1199764276}
+    - target: {fileID: 22455258, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -424
+      objectReference: {fileID: 0}
+    - target: {fileID: 22484450, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 22498172, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 233
+      objectReference: {fileID: 0}
+    - target: {fileID: 22484450, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 22455258, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 681
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8876e4b2e5d6a304a9ae0173e0ac6633, type: 2}
   m_IsPrefabParent: 0
@@ -543,6 +563,22 @@ Prefab:
     - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
       propertyPath: PlayerColors.Array.data[2].g
       value: .0650354996
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
+      propertyPath: skybox
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c022d0b99a9a8f42b3bd76ccead9d66, type: 2}
+    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
+      propertyPath: PlayerColors.Array.data[3].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
+      propertyPath: PlayerColors.Array.data[3].b
+      value: .553957641
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483128, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
+      propertyPath: PlayerColors.Array.data[3].r
+      value: .0808823705
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50bd3cb587eac754c956dc631ed247ce, type: 2}
