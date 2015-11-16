@@ -144,7 +144,7 @@ public class GameManager : Singleton<GameManager> {
     public void QueueNextLevel()
     { //method to fix ui bug
         Debug.Log("QUEUE");
-
+        //Time.timeScale = 1.0f;
         Invoke("LoadRandomStage", 0.0f);
     }
 

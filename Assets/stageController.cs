@@ -12,6 +12,8 @@ public class stageController : Singleton<stageController> {
     public float stageLength;
     private float remainingTime;
 
+    private bool stageFinished;
+
     void PauseGame() {
         Time.timeScale = 0;
         //GameManager.Instance.
@@ -82,8 +84,10 @@ public class stageController : Singleton<stageController> {
         GUIManager.Instance.LiveScoresScript.SetTimeCounter((int)remainingTime);
 
         //Debug.Log(remainingTime);
-        if (remainingTime < 0f) {
+        if (remainingTime < 0.0f && !stageFinished) { //set this back to zero!!
+            stageFinished = true;
             StageIsOver();
+            
         }
 
 	}
@@ -95,6 +99,7 @@ public class stageController : Singleton<stageController> {
     void StageIsOver() {
 
         PauseGame();
+        Debug.Log("ACTIVATING ENDOFROUNDPANEL");
         GUIManager.Instance.EndOfRoundPanel.SetActive(true);
 
         //var S = GUIManager.Instance.EndOfRoundPanel.transform.Find("ScoreText").gameObject.GetComponent<Text>();

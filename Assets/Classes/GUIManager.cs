@@ -43,10 +43,12 @@ public class GUIManager : Singleton<GUIManager> {
     
     public void StageOverButtonPressed() {
 
-        
 
-        GameManager.Instance.QueueNextLevel();
+
+        GameManager.Instance.LoadRandomStage();
+        Debug.Log("SA JECUTAO "+EndOfRoundPanel.active);
         EndOfRoundPanel.SetActive(false);
+        Debug.Log("SA JECUTAO ? " + EndOfRoundPanel.active);
 
         //GameManager.Instance.LoadRandomStage();
     }
