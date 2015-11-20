@@ -13,6 +13,8 @@ public class Player {
     public int id;
     public GameObject playerObject;
     
+    
+    
 
     public Player(int setId) {
         id = setId;
@@ -25,6 +27,7 @@ public class Player {
     public void AddPoints(int d) {
         Debug.Log("Added " + d.ToString() + " points to " + name);
         CurrentSceneScore += d;
+        
     }
 
     public void ToggleActivate() {
@@ -44,9 +47,13 @@ public class GameManager : Singleton<GameManager> {
     UnityEngine.UI.Text TestString;
 
     public List<StageClass> _StagesDB;
+    List<StageClass> shuffleBagStages;
+    int shuffleBagIndex = 0;
     public StageClass currentStage;
 
     public Material skybox;
+
+    public GameObject Camera;
 
 	// Use this for initialization
 	void Start () {
@@ -65,11 +72,57 @@ public class GameManager : Singleton<GameManager> {
 
         //TestString = GameObject.Find("TestPreview").GetComponent<Text>();
 
-        Debug.Log(Application.loadedLevelName);
-                
+        shuffleBagStages = new List<StageClass>();
+        DuplicateStageDB(); // create a copy of _stagesDB in shufflebag
+        Fisher_Yates_CardDeck_Shuffle(shuffleBagStages); //shuffle
+        shuffleBagIndex = 0; //init 
+       
         
 
+
+        
+        PrintList(shuffleBagStages);     
+
 	}
+
+    private void DuplicateStageDB()
+    {
+        foreach (StageClass sc in _StagesDB)
+        {
+            shuffleBagStages.Add(sc);
+        }
+
+    }
+
+    private void PrintList(List<StageClass> list)
+    {
+        foreach (StageClass sc in list)
+        {
+            Debug.Log(sc.name);        
+        }
+    
+    }
+
+    public static List<StageClass> Fisher_Yates_CardDeck_Shuffle(List<StageClass> aList)
+    {
+
+        System.Random _random = new System.Random();
+
+        StageClass myGO;
+
+        int n = aList.Count;
+        for (int i = 0; i < n; i++)
+        {
+            // NextDouble returns a random number between 0 and 1.
+            // ... It is equivalent to Math.random() in Java.
+            int r = i + (int)(_random.NextDouble() * (n - i));
+            myGO = aList[r];
+            aList[r] = aList[i];
+            aList[i] = myGO;
+        }
+
+        return aList;
+    }
 
 
     public Player GetWinningPlayer(){
@@ -100,11 +153,6 @@ public class GameManager : Singleton<GameManager> {
 	
 	// Update is called once per frame
 	void Update () {
-
-
-      
-       
-        
 	}
 
     public void checkActivatedPlayers() { 
@@ -158,10 +206,15 @@ public class GameManager : Singleton<GameManager> {
         
         //GUIManager.Instance.EndOfRoundPanel.SetActive(false);
 
-        int stageIndex = Random.Range(0,_StagesDB.Count);
+        if (shuffleBagIndex > shuffleBagStages.Count-1)
+            shuffleBagIndex = 0;
 
-        currentStage = _StagesDB[stageIndex];
-        string lvlname = _StagesDB[stageIndex].levelname;
+        int stageIndex = shuffleBagIndex;
+
+        shuffleBagIndex++;
+
+        currentStage = shuffleBagStages[stageIndex];
+        string lvlname = shuffleBagStages[stageIndex].levelname;
         DontDestroyOnLoad(gameObject);
         Debug.Log("trying to load " + lvlname);
         Application.LoadLevel(lvlname);

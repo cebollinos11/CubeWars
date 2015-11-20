@@ -3,49 +3,22 @@ using System.Collections;
 
 public class cameraShaker : MonoBehaviour {
 
-	// Transform of the camera to shake. Grabs the gameObject's transform
-	// if null.
-	public Transform camTransform;
-	
-	// How long the object should shake for.
-	public float shake = 0f;
-	
-	// Amplitude of the shake. A larger value shakes the camera harder.
-	public float shakeAmount = 0.7f;
-	public float decreaseFactor = 1.0f;
-	
-	Vector3 originalPos;
-	
-	void Awake()
-	{
-		if (camTransform == null)
-		{
-			camTransform = GetComponent(typeof(Transform)) as Transform;
-		}
-	}
-	
-	void OnEnable()
-	{
-		originalPos = camTransform.localPosition;
-	}
-
-    public void ShakeIt() { 
-    
-    
+    Transform originalPos;
+    void Start() {
+        originalPos = transform;
     }
 
-	void Update()
-	{
-		if (shake > 0)
-		{
-			camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
-			
-			shake -= Time.deltaTime * decreaseFactor;
-		}
-		else
-		{
-			shake = 0f;
-			camTransform.localPosition = originalPos;
-		}
-	}
+    public void Shake() {
+
+        Transform goTo;
+        goTo = originalPos;
+        goTo.Translate(0f,0f,-1f);
+        //transform.position = goTo.position;
+    }
+
+    void Update() {
+
+        //transform.position = Vector3.Lerp(transform.position, originalPos.position, Time.deltaTime * 0.8f);
+       
+    }
 }

@@ -52,6 +52,7 @@ public class stageController : Singleton<stageController> {
         Debug.Log("setting stagestatus to - " + stageStatus);
         ShowInstructions();
         GUIManager.Instance.ShowLiveScores();
+        GameManager.Instance.Camera = Camera.main.gameObject;
     }
     void ShowInstructions() {
 
