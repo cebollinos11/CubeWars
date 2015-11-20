@@ -226,13 +226,46 @@ public class playerControllerV1 : MonoBehaviour
                 }
             }
         }
-            if(col.gameObject.tag=="Pendulus")
+        if (col.gameObject.tag == "Pendulus")
         {
-            _particleManager.playClashParticle(col.contacts[0].point);
+            // _particleManager.playClashParticle(col.contacts[0].point);
             StunByDash();
+            Vector3 pointA, pointB;
+            pointA = col.contacts[0].point;
+            pointB = col.contacts[1].point;
+            Debug.Log("A:" + pointA + " B:" + pointB);
+            if (pointA.z != pointB.z)
+                ApplyForce((col.gameObject.transform.position -transform.position).normalized * 200000.0f);
         }
-
     }
+
+    private int PendulusPushPlayer(GameObject ObjectHit)
+    {
+        Ray MyRay =new Ray(transform.position,ObjectHit.transform.position - transform.position);
+
+        //this will declare a variable which will store information about the object hit
+        RaycastHit MyRayHit;
+
+        //this is the actual raycast
+        Physics.Raycast(MyRay, out MyRayHit);
+
+        //this will get the normal of the point hit, if you dont understand what a normal is 
+        //wikipedia is your friend, its a simple idea, its a line which is tangent to a plane
+
+        Vector3 MyNormal = MyRayHit.normal;
+
+        //this will convert that normal from being relative to global axis to relative to an
+        //objects local axis
+
+        MyNormal = MyRayHit.transform.TransformDirection(MyNormal);
+
+        if (MyNormal == MyRayHit.transform.right)
+            return 0;
+        if (MyNormal == -MyRayHit.transform.right)
+            return 1;
+        return -1;
+    }
+
     public bool isDashing()
     {
         return _dash;
