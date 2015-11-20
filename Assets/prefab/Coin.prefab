@@ -377,6 +377,7 @@ MonoBehaviour:
   BodyToFollow: {fileID: 174314}
   RotationSpeed: 100
   lowGravity: 0
+  coinParticle: {fileID: 177192, guid: c7aae09966dcda24c9a7abd3b99f3892, type: 2}
 --- !u!135 &13539636
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -420,6 +421,10 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: coinParticle
+      value: 
+      objectReference: {fileID: 177192, guid: c7aae09966dcda24c9a7abd3b99f3892, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196646}

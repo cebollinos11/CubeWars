@@ -9,6 +9,7 @@ public class Coin : MonoBehaviour {
     private Vector3 OriginalDistanceVector;
     private Rigidbody rigidBodyMaster;
     private int points = 1;
+    [SerializeField] GameObject coinParticle;
 
     private float superCoinProbability = 20;
 	// Use this for initialization
@@ -53,6 +54,8 @@ public class Coin : MonoBehaviour {
             //GUIManager.Instance.LiveScores.GetComponent<LiveScores>().UpdateCounters();
             
             GUIManager.Instance.UpdateLiveScores();
+            GameObject part =  (GameObject)Instantiate(coinParticle, transform.position, transform.rotation);
+            part.GetComponent<coinParticle>().SetColor(Other.GetComponent<Renderer>().material.color);
             Destroy(transform.parent.gameObject);
         }
     

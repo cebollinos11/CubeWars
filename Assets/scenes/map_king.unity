@@ -399,6 +399,10 @@ Prefab:
       propertyPath: orthographic size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 136890, guid: f17e2fb6d1ce1e841867c81d8efcee34, type: 2}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f17e2fb6d1ce1e841867c81d8efcee34, type: 2}
   m_IsPrefabParent: 0

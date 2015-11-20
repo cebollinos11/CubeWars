@@ -250,7 +250,7 @@ public class playerControllerV1 : MonoBehaviour
                     Vector3 impulse = (col.gameObject.GetComponent<Transform>().position - GetComponent<Transform>().position) * dashPower * 0.0000001f;
                     col.gameObject.GetComponent<playerControllerV1>().ApplyForce(impulse);
                     col.gameObject.GetComponent<playerControllerV1>().StunByDash();
-                    GameManager.Instance.Camera.GetComponent<cameraShaker>().Shake();
+                    //GameManager.Instance.Camera.GetComponent<cameraShaker>().Shake();
                 }
             }
         }

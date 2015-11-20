@@ -88,7 +88,6 @@ public class stageController : Singleton<stageController> {
         if (remainingTime < 0.0f && !stageFinished) { //set this back to zero!!
             stageFinished = true;
             StageIsOver();
-            
         }
 
 	}
@@ -109,19 +108,12 @@ public class stageController : Singleton<stageController> {
         S.text = "";
 
         foreach (Player P in GameManager.Instance.Players)
-        {
-
-            
-            S.text += P.name + " :\t" + P.CurrentSceneScore.ToString();           
-           
+        {            
+            S.text += P.name + " :\t" + P.CurrentSceneScore.ToString();
             S.text += "\n";
         }
-
-        GUIManager.Instance.UpdateLiveScores();
-    
-    }
-
-    
+        GUIManager.Instance.UpdateLiveScores();    
+    }  
     
 
 }
