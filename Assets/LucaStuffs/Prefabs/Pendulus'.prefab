@@ -12,7 +12,7 @@ GameObject:
   - 54: {fileID: 5494622}
   m_Layer: 0
   m_Name: Hammer (1)
-  m_TagString: Untagged
+  m_TagString: Pendulus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ GameObject:
   - 23: {fileID: 2392252}
   m_Layer: 0
   m_Name: Stick
-  m_TagString: Untagged
+  m_TagString: Pendulus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ GameObject:
   - 23: {fileID: 2342844}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Pendulus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ GameObject:
   - 4: {fileID: 485654}
   m_Layer: 0
   m_Name: Pendulus'
-  m_TagString: Untagged
+  m_TagString: Pendulus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ GameObject:
   - 23: {fileID: 2359570}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Pendulus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ GameObject:
   - 23: {fileID: 2330976}
   m_Layer: 0
   m_Name: Stick
-  m_TagString: Untagged
+  m_TagString: Pendulus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ GameObject:
   - 54: {fileID: 5462664}
   m_Layer: 0
   m_Name: Hammer
-  m_TagString: Untagged
+  m_TagString: Pendulus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,7 @@ GameObject:
   - 23: {fileID: 2376198}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Pendulus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   - 23: {fileID: 2366968}
   m_Layer: 0
   m_Name: Stick
-  m_TagString: Untagged
+  m_TagString: Pendulus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ GameObject:
   - 54: {fileID: 5464344}
   m_Layer: 0
   m_Name: Hammer (2)
-  m_TagString: Untagged
+  m_TagString: Pendulus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

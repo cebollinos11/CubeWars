@@ -201,8 +201,8 @@ public class playerControllerV1 : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-
-            if (!firstTimeTouch)
+        
+        if (!firstTimeTouch)
                 firstTimeTouch = true;
             if (firstTimeTouch && (col.gameObject.transform.position.y<transform.position.y||col.gameObject.tag=="Tower"))
             {
@@ -225,6 +225,11 @@ public class playerControllerV1 : MonoBehaviour
                     col.gameObject.GetComponent<playerControllerV1>().StunByDash();
                 }
             }
+        }
+            if(col.gameObject.tag=="Pendulus")
+        {
+            _particleManager.playClashParticle(col.contacts[0].point);
+            StunByDash();
         }
 
     }

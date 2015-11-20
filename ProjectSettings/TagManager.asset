@@ -11,6 +11,7 @@ TagManager:
   - Tower
   - Fire
   - Crown
+  - Pendulus
   layers:
   - Default
   - TransparentFX
