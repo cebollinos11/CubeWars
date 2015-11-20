@@ -7,11 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/scenes/TitleScreen.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/scenes/scene1.unity
   - enabled: 1
     path: Assets/scenes/map_basic.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/scenes/map_mill.unity
   - enabled: 1
     path: Assets/scenes/map_shrink.unity
@@ -27,3 +27,7 @@ EditorBuildSettings:
     path: Assets/scenes/TitleScreen.unity
   - enabled: 1
     path: Assets/scenes/map_cement.unity
+  - enabled: 1
+    path: Assets/scenes/map_hammer.unity
+  - enabled: 1
+    path: Assets/scenes/map_c.unity
