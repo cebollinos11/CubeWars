@@ -6,8 +6,16 @@ public class FinalSceneController : MonoBehaviour {
 
     public float rotationSpeed;
     void Awake(){
-        _winnerPlayer = GameObject.FindGameObjectWithTag("Player");
+        //instantiate player
+        Player winningPlayer = GameManager.Instance.GetWinningPlayer();
+        GameObject p = (GameObject)Instantiate(GameManager.Instance.PlayerPrefab, Vector3.zero, Quaternion.identity);
+        // set color
+        p.GetComponent<Renderer>().material.color = winningPlayer.Color;
+        p.name = winningPlayer.name;
+        p.GetComponent<playerControllerV1>().enabled = false;
+        p.GetComponent<Rigidbody>().isKinematic = true;
         _winnerPlayer.GetComponent<Rigidbody>().isKinematic = true;
+
     }
     
     // Use this for initialization

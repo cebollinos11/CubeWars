@@ -12,6 +12,7 @@ TagManager:
   - Fire
   - Crown
   - Pendulus
+  - Meteors
   layers:
   - Default
   - TransparentFX

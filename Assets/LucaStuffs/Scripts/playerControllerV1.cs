@@ -276,7 +276,7 @@ public class playerControllerV1 : MonoBehaviour
     {
         if (firstTimeTouch)
         {
-            if (col.gameObject.tag == "GamePlane" || col.gameObject.tag == "Tower" || jPower)
+            if (col.gameObject.tag == "GamePlane" || col.gameObject.tag == "Tower"||col.gameObject.tag=="Pendulus" || jPower)
             {
                 _isJumping = true;
             }
