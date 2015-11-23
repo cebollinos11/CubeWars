@@ -31,3 +31,5 @@ EditorBuildSettings:
     path: Assets/scenes/map_hammer.unity
   - enabled: 1
     path: Assets/scenes/map_c.unity
+  - enabled: 1
+    path: Assets/scenes/Destroyer.unity
