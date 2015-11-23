@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSongs:
   - {fileID: 8300000, guid: f1873d06ce040fd429b379592a840b1d, type: 3}
+  - {fileID: 8300000, guid: b9dcf152aed32a6438dd733a7f3ba80e, type: 3}
+  - {fileID: 8300000, guid: f58b9e0daa8f62844841cb03f588b236, type: 3}
   audioList:
   - type: 0
     clip: {fileID: 8300000, guid: 1623b52a12dc9cf40a3e92063eadd572, type: 3}
@@ -161,10 +163,10 @@ MonoBehaviour:
     description: Climb the walls and jump across to get the coins!
     levelname: map_2towers
   - name: Hammer Time
-    description: No desc
+    description: Avoid the hammers, they will know you out!!
     levelname: map_hammer
   - name: C Plane
-    description: No desc
+    description: Mind the hole when you respawn!
     levelname: map_c
   currentStage:
     name: 
@@ -180,9 +182,29 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: backgroundSongs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: skybox
       value: 
       objectReference: {fileID: 2100000, guid: 6c022d0b99a9a8f42b3bd76ccead9d66, type: 2}
+    - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.data[6].description
+      value: Mind the hole when you respawn!
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.data[5].description
+      value: Avoid the hammers, they will know you out!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: backgroundSongs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: b9dcf152aed32a6438dd733a7f3ba80e, type: 3}
+    - target: {fileID: 0}
+      propertyPath: backgroundSongs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f58b9e0daa8f62844841cb03f588b236, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159300}

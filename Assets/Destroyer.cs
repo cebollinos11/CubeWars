@@ -5,7 +5,15 @@ public class Destroyer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
+        GUIManager.Instance.LiveScores.SetActive(false);
+
+        foreach (Player p in GameManager.Instance.Players) {
+            p.CurrentSceneScore = 0;
+            
+        }
+
+
 	}
 	
 	// Update is called once per frame
@@ -15,6 +23,7 @@ public class Destroyer : MonoBehaviour {
         {
 
             Debug.Log("yeah");
+            AudioManager.PlayBgSong(2);   
             Application.LoadLevel("TitleScreen");
         }
 	

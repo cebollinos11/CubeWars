@@ -13,10 +13,10 @@ public class FinalSceneController : MonoBehaviour {
     void Awake(){
 
         //instantiate player
-        //_winningPlayer = GameManager.Instance.GetWinningPlayer();
-        _winningPlayer = new Player(1);
-        _winningPlayer.name = "Luca";
-        _winningPlayer.Color = Color.red;
+        _winningPlayer = GameManager.Instance.GetWinningPlayer();
+        //_winningPlayer = new Player(1);
+        //_winningPlayer.name = "Luca";
+        //_winningPlayer.Color = Color.red;
         _winnerPlayer = (GameObject)Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
         // set color
         _winnerPlayer.GetComponent<Renderer>().material.color = _winningPlayer.Color;
@@ -24,6 +24,7 @@ public class FinalSceneController : MonoBehaviour {
         _winnerPlayer.GetComponent<playerControllerV1>().enabled = false;
         _winnerPlayer.GetComponent<Rigidbody>().isKinematic = true;
         _winnerPlayer.GetComponent<Rigidbody>().isKinematic = true;
+        AudioManager.PlayBgSong(1);
         
 
     }
@@ -33,11 +34,11 @@ public class FinalSceneController : MonoBehaviour {
         int i = 0;
             Color Temp = _winningPlayer.Color;
             Temp.a = 1f;
-            Counter.GetComponent<Text>().color = Temp;
+            //Counter.GetComponent<Text>().color = Temp;
             i++;
         
 
-        Counter.GetComponent<Text>().text = "The winning player is "+_winningPlayer.name+" with "+_winningPlayer.CurrentSceneScore.ToString()+" points. "+ "Press X to return to the Title Screen!";
+        Counter.GetComponent<Text>().text = _winningPlayer.name+" controls the UNIVERSE!!! ";
     }
 	
 	// Update is called once per frame

@@ -478,6 +478,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ded541cc977b1c448bf09c3dc520d6c8, type: 3}
+      propertyPath: m_TagString
+      value: GamePlane
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ded541cc977b1c448bf09c3dc520d6c8, type: 3}
   m_IsPrefabParent: 0

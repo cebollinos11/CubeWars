@@ -46,6 +46,26 @@ public class GUIManager : Singleton<GUIManager> {
     public void StageOverButtonPressed() {
 
 
+        //check for end game
+
+        Player p = GameManager.Instance.GetWinningPlayer();
+
+        Debug.Log("** check for endgame" + p);
+        if (p != null)
+        {
+            Debug.Log("** check for endgame -> " + p.CurrentSceneScore);
+            if (p.CurrentSceneScore >= GameManager.Instance.tournamentPoints && GameManager.Instance.GetWinningPlayer() != null)
+            {                
+                Application.LoadLevel("Destroyer");
+                EndOfRoundPanel.SetActive(false);
+                return;
+                }
+
+        }
+
+
+
+
 
         GameManager.Instance.LoadRandomStage();
         Debug.Log("SA JECUTAO "+EndOfRoundPanel.active);

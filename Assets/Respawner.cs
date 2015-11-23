@@ -31,12 +31,13 @@ public class Respawner : MonoBehaviour {
         //AudioManager.PlayClip(AudioClipsType.RespawnPlayer);
 
         //give points on kill
-        foreach (Player p in GameManager.Instance.Players)
-        {
-            if(p.playerObject.name == transform.name)
-                p.playerObject.GetComponent<PointsManager>().GivePoints(-1);
-        }
-        
+        //foreach (Player p in GameManager.Instance.Players)
+        //{
+        //    if(p.playerObject.name == transform.name)
+        //        p.playerObject.GetComponent<PointsManager>().GivePoints(-1);
+        //}
+
+        GetComponent<PointsManager>().GivePoints(-1);
 
 
 

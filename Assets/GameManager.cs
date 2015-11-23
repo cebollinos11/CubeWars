@@ -5,13 +5,14 @@ using System.Collections.Generic;
 
 public class Player {
 
-    public bool Active = true;
+    public bool Active;
     public int AccumulatedScore = 0;
     public int CurrentSceneScore = 0;
     public string name = "";
     public Color Color;
     public int id;
     public GameObject playerObject;
+    
     
     
     
@@ -37,7 +38,7 @@ public class Player {
 }
 
 public class GameManager : Singleton<GameManager> {
-
+    public int tournamentPoints = 50;
     public GameObject PlayerPrefab;
     public Player[] Players = new Player[4];    
     public Color[] PlayerColors = new Color[4];
@@ -76,14 +77,15 @@ public class GameManager : Singleton<GameManager> {
         DuplicateStageDB(); // create a copy of _stagesDB in shufflebag
         Fisher_Yates_CardDeck_Shuffle(shuffleBagStages); //shuffle
         shuffleBagIndex = 0; //init 
-       
-        
-
-
-        
-        PrintList(shuffleBagStages);     
+        Invoke("StartBGMUSIC", 0.1f);
 
 	}
+
+    void StartBGMUSIC() {
+        
+        AudioManager.PlayBgSong(2);   
+    
+    }
 
     private void DuplicateStageDB()
     {
@@ -204,6 +206,13 @@ public class GameManager : Singleton<GameManager> {
         Debug.Log("LoadRandom executed");
         //stop all audio
         AudioManager.StopAll();
+
+
+      
+
+
+
+
 
         //clean ui bugg
 
