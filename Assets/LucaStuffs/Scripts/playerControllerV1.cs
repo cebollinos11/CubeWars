@@ -232,10 +232,13 @@ public class playerControllerV1 : MonoBehaviour
             StunByDash();
             Vector3 pointA, pointB;
             pointA = col.contacts[0].point;
+            Debug.Log(col.gameObject.name);
+            if (col.contacts.Length > 1) { 
             pointB = col.contacts[1].point;
-            Debug.Log("A:" + pointA + " B:" + pointB);
             if (pointA.z != pointB.z)
-                ApplyForce((col.gameObject.transform.position -transform.position).normalized * 200000.0f);
+                ApplyForce(-(col.gameObject.transform.position -transform.position).normalized * 2000000.0f);
+            }else
+            { ApplyForce(-(col.gameObject.transform.position - transform.position).normalized * 2000000.0f); }
         }
     }
 

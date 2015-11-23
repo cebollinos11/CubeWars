@@ -16,14 +16,16 @@ public class GUIManager : Singleton<GUIManager> {
 	// Use this for initialization
 	void Start () {
 
+
+
         DontDestroyOnLoad(gameObject);
 
         //Init stage selector
         StageSelector.options.Clear();
-        foreach(StageClass S in GameManager.Instance._StagesDB)
-        {
-            StageSelector.options.Add(new Dropdown.OptionData(S.name));
-        }
+        //foreach(StageClass S in GameManager.Instance._StagesDB)
+        //{
+        //    StageSelector.options.Add(new Dropdown.OptionData(S.name));
+        //}
         StageSelector.value = 1;
         StageSelector.value = 0;
 

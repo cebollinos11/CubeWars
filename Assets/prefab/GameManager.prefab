@@ -141,8 +141,8 @@ MonoBehaviour:
   PlayerColors:
   - {r: 1, g: .0882353187, b: .0882353187, a: 0}
   - {r: 0, g: 0, b: 1, a: 0}
-  - {r: 0, g: .741379321, b: 0, a: 0}
-  - {r: 1, g: .838235259, b: 0, a: 0}
+  - {r: .982758582, g: .0650354996, b: .672352195, a: 0}
+  - {r: .0808823705, g: 1, b: .553957641, a: 0}
   stageController: {fileID: 0}
   _StagesDB:
   - name: BasicMap
@@ -160,11 +160,18 @@ MonoBehaviour:
   - name: Two towers
     description: Climb the walls and jump across to get the coins!
     levelname: map_2towers
+  - name: Hammer Time
+    description: No desc
+    levelname: map_hammer
+  - name: C Plane
+    description: No desc
+    levelname: map_c
   currentStage:
     name: 
     description: 
     levelname: 
   skybox: {fileID: 2100000, guid: 6c022d0b99a9a8f42b3bd76ccead9d66, type: 2}
+  Camera: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
