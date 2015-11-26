@@ -6,13 +6,14 @@ public class PlayerJoiner : MonoBehaviour {
     public int PlayerID;
     public GameObject particle;
     bool begin;
+    public Material playerSelectedMaterial;
 
     Vector3 originalPos;
 	// Use this for initialization
 	void Start () {
 
         Invoke("Begin", 0.1f);
-        originalPos = transform.position;
+        originalPos = transform.localPosition;
 	
 	}
 
@@ -20,6 +21,7 @@ public class PlayerJoiner : MonoBehaviour {
 
         if (GameManager.Instance.Players[PlayerID - 1].Active)
         {
+            GameManager.Instance.Players[PlayerID - 1].Active = false;
             Join();
         }
 
@@ -38,23 +40,27 @@ public class PlayerJoiner : MonoBehaviour {
         }
 
 
-        transform.position = originalPos;
+        transform.localPosition = originalPos;
         if (Input.GetButton("JumpP" + PlayerID.ToString()))
         {
-            transform.position = originalPos + Vector3.up;
+            transform.localPosition = originalPos + Vector3.up;
         }
 
 	}
 
     void Join() {
-
+        if (GameManager.Instance.Players[PlayerID - 1].Active) {
+            AudioManager.PlayClip(AudioClipsType.Clash);
+            return;
+        }
         Debug.Log(PlayerID + " joins!");
         Color color = GameManager.Instance.PlayerColors[PlayerID - 1];
+        GetComponent<Renderer>().material = playerSelectedMaterial;
         GetComponent<Renderer>().material.color = color;
 
         AudioManager.PlayClip(AudioClipsType.Clash);
         GameManager.Instance.Players[PlayerID - 1].Active = true;
-        //Instantiate(particle, transform.position+Vector3.up, transform.rotation);
+        Instantiate(particle, transform.position+Vector3.up, transform.rotation);
 
     }
 }

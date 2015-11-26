@@ -206,14 +206,6 @@ public class GameManager : Singleton<GameManager> {
         Debug.Log("LoadRandom executed");
         //stop all audio
         AudioManager.StopAll();
-
-
-      
-
-
-
-
-
         //clean ui bugg
 
         

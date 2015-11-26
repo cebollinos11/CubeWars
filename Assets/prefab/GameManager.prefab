@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fa975af20773b4f86a52e4ced5791e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tournamentPoints: 50
   PlayerPrefab: {fileID: 190638, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
   PlayerColors:
   - {r: 1, g: .0882353187, b: .0882353187, a: 0}
@@ -205,6 +206,10 @@ Prefab:
       propertyPath: backgroundSongs.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: f58b9e0daa8f62844841cb03f588b236, type: 3}
+    - target: {fileID: 0}
+      propertyPath: tournamentPoints
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159300}

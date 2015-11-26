@@ -5,7 +5,7 @@ public class Destroyer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        Time.timeScale = 1f;
         GUIManager.Instance.LiveScores.SetActive(false);
 
         foreach (Player p in GameManager.Instance.Players) {

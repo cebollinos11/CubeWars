@@ -107,11 +107,20 @@ public class stageController : Singleton<stageController> {
         Text S = GUIManager.Instance.EndOfRoundScoreText;
         S.text = "";
 
-        foreach (Player P in GameManager.Instance.Players)
-        {            
-            S.text += P.name + " :\t" + P.CurrentSceneScore.ToString();
-            S.text += "\n";
+        //foreach (Player P in GameManager.Instance.Players)
+        //{            
+        //    S.text += P.name + " :\t" + P.CurrentSceneScore.ToString();
+        //    S.text += "\n";
+        //}
+
+        Player winner = GameManager.Instance.GetWinningPlayer();
+        if (winner != null) {
+            //S.text += winner.name+" is in the lead with "+winner.CurrentSceneScore+" points!";
         }
+
+        //S.text += "\n\n\nReach " + GameManager.Instance.tournamentPoints + " energy points to win.";
+        S.text = "Tournament lenght: " + GameManager.Instance.tournamentPoints.ToString();
+
         GUIManager.Instance.UpdateLiveScores();    
     }  
     

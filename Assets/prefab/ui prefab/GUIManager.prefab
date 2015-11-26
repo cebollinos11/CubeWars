@@ -229,6 +229,7 @@ GameObject:
   - 224: {fileID: 22407470}
   - 222: {fileID: 22216494}
   - 114: {fileID: 11453206}
+  - 114: {fileID: 11498700}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -1150,7 +1151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &412272
 Transform:
   m_ObjectHideFlags: 1
@@ -2530,7 +2531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: .933333337, b: .666666687, a: 1}
+  m_Color: {r: 1, g: .82266438, b: .397058845, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2539,17 +2540,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 28b7e7dfd6e10a14ab289aee2a502ac0, type: 3}
-    m_FontSize: 14
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: New TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew
+    TextNew TextNew TextNew TextNew TextNew Text
 --- !u!114 &11453786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3150,17 +3152,17 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 28b7e7dfd6e10a14ab289aee2a502ac0, type: 3}
-    m_FontSize: 60
+    m_FontSize: 42
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score
+  m_Text: Round Over!
 --- !u!114 &11473884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3483,6 +3485,18 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
+--- !u!114 &11498700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc36dbcb2589e1441abadef77926fbad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!222 &22206324
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3953,8 +3967,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 74, y: 0}
-  m_SizeDelta: {x: 427.399994, y: 166.300003}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 338.299988, y: 166.300003}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22412186
 RectTransform:
@@ -4039,7 +4053,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 56, y: 108}
+  m_AnchoredPosition: {x: 14, y: 135}
   m_SizeDelta: {x: 392.109985, y: 172.100006}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22425856
