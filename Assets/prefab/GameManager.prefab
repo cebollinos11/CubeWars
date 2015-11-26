@@ -166,6 +166,9 @@ MonoBehaviour:
   - name: Hammer Time
     description: Avoid the hammers, they will knock you out!!
     levelname: map_hammer
+  - name: Pillars of the Earth
+    description: Pillars arent your friends
+    levelname: map_mill
   - name: C Plane
     description: Mind the hole when you respawn!
     levelname: map_c
@@ -183,6 +186,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: backgroundSongs.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -192,7 +199,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 6c022d0b99a9a8f42b3bd76ccead9d66, type: 2}
     - target: {fileID: 0}
       propertyPath: _StagesDB.Array.data[6].description
-      value: Mind the hole when you respawn!
+      value: Pillars arent your friends
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _StagesDB.Array.data[5].description
@@ -209,6 +216,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: tournamentPoints
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.data[6].name
+      value: Pillars of the Earth
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.data[6].levelname
+      value: map_mill
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
