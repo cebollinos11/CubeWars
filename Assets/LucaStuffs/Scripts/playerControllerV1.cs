@@ -41,6 +41,7 @@ public class playerControllerV1 : MonoBehaviour
     float max_speed;
     // Use this for initialization
 
+    public GameObject ObjectSpawnOnPendulus;
 
     void Awake()
     {
@@ -229,6 +230,8 @@ public class playerControllerV1 : MonoBehaviour
         if (col.gameObject.tag == "Pendulus")
         {
             // _particleManager.playClashParticle(col.contacts[0].point);
+
+
             StunByDash();
             Vector3 pointA, pointB;
             pointA = col.contacts[0].point;
@@ -239,6 +242,9 @@ public class playerControllerV1 : MonoBehaviour
                 ApplyForce(-(col.gameObject.transform.position -transform.position).normalized * 2000000.0f);
             }else
             { ApplyForce(-(col.gameObject.transform.position - transform.position).normalized * 2000000.0f); }
+
+            //add explosion
+            Instantiate(ObjectSpawnOnPendulus, transform.position, transform.rotation);
         }
     }
 

@@ -627,6 +627,8 @@ MonoBehaviour:
   dashPower: 100
   stunTimerReset: .5
   max_speed: 50
+  ObjectSpawnOnPendulus: {fileID: 131164, guid: fd449d41fdedafc438253bd1772ebbc9,
+    type: 2}
 --- !u!114 &11445274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1817,6 +1819,10 @@ Prefab:
       propertyPath: m_Colors.m_Color[3].rgba
       value: 4278716671
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ObjectSpawnOnPendulus
+      value: 
+      objectReference: {fileID: 131164, guid: fd449d41fdedafc438253bd1772ebbc9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190638}
