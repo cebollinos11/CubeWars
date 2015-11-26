@@ -194,7 +194,7 @@ public class playerControllerV1 : MonoBehaviour
 
     void Jump()
     {
-        AudioManager.PlayClip(AudioClipsType.Jump);
+        //AudioManager.PlayClip(AudioClipsType.Jump);
         _particleManager.playJumpParticle();
         for (int i = 0; i < bodies.Length; i++)
             bodies[i].velocity = new Vector3(bodies[i].velocity.x, _jumpPower, bodies[i].velocity.z);
