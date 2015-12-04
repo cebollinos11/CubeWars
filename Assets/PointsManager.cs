@@ -18,6 +18,10 @@ public class PointsManager : MonoBehaviour {
     public void GivePoints(int n) {
 
         GameManager.Instance.Players[i].CurrentSceneScore += n;
+        if (GameManager.Instance.Players[i].CurrentSceneScore < 0)
+        {
+            GameManager.Instance.Players[i].CurrentSceneScore = 0;
+        }
         GUIManager.Instance.LiveScores.GetComponent<LiveScores>().UpdateCounters();
     
     }
