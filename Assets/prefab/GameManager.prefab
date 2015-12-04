@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fa975af20773b4f86a52e4ced5791e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tournamentPoints: 50
+  tournamentPoints: 30
   PlayerPrefab: {fileID: 190638, guid: 9393ced13c2f91343ae7662284e27525, type: 2}
   PlayerColors:
   - {r: 1, g: .0882353187, b: .0882353187, a: 0}
@@ -160,18 +160,15 @@ MonoBehaviour:
   - name: Cement Madness
     description: Collect coins while you evade the ROCK!
     levelname: map_cement
-  - name: Two towers
-    description: Climb the walls and jump across to get the coins!
-    levelname: map_2towers
+  - name: Pillars of the Earth
+    description: Pillars arent your friends
+    levelname: map_mill
   - name: Hammer Time
     description: Avoid the hammers, they will knock you out!!
     levelname: map_hammer
   - name: Pillars of the Earth
     description: Pillars arent your friends
     levelname: map_mill
-  - name: C Plane
-    description: Mind the hole when you respawn!
-    levelname: map_c
   currentStage:
     name: 
     description: 
@@ -187,7 +184,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: _StagesDB.Array.size
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: backgroundSongs.Array.size
@@ -215,7 +212,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: f58b9e0daa8f62844841cb03f588b236, type: 3}
     - target: {fileID: 0}
       propertyPath: tournamentPoints
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _StagesDB.Array.data[6].name
@@ -224,6 +221,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _StagesDB.Array.data[6].levelname
       value: map_mill
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.data[4].name
+      value: Pillars of the Earth
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.data[4].description
+      value: Pillars arent your friends
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.data[4].levelname
+      value: map_mill
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.data[7].name
+      value: C Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.data[7].description
+      value: Mind the hole when you respawn!
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _StagesDB.Array.data[7].levelname
+      value: map_c
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

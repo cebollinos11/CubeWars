@@ -69,20 +69,20 @@ public class StageManager2 : MonoBehaviour {
 
                 
 
-                var so = new UnityEditor.SerializedObject(tR);
+                //var so = new UnityEditor.SerializedObject(tR);
 
-                Color colorToSet = GameManager.Instance.Players[i].Color;
+                //Color colorToSet = GameManager.Instance.Players[i].Color;
 
-                colorToSet.a = 1f;
+                //colorToSet.a = 1f;
 
 
-                so.FindProperty("m_Colors.m_Color[0]").colorValue = colorToSet;
-                so.FindProperty("m_Colors.m_Color[1]").colorValue = colorToSet;
-                so.FindProperty("m_Colors.m_Color[2]").colorValue = colorToSet;
-                so.FindProperty("m_Colors.m_Color[3]").colorValue = colorToSet;
-                so.FindProperty("m_Colors.m_Color[4]").colorValue = colorToSet;
+                //so.FindProperty("m_Colors.m_Color[0]").colorValue = colorToSet;
+                //so.FindProperty("m_Colors.m_Color[1]").colorValue = colorToSet;
+                //so.FindProperty("m_Colors.m_Color[2]").colorValue = colorToSet;
+                //so.FindProperty("m_Colors.m_Color[3]").colorValue = colorToSet;
+                //so.FindProperty("m_Colors.m_Color[4]").colorValue = colorToSet;
 
-                so.ApplyModifiedProperties();
+                //so.ApplyModifiedProperties();
 
                
                 
