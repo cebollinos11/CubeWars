@@ -376,7 +376,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11451878, guid: a0f56715f0778704db7aea20ffb0b863, type: 2}
       propertyPath: WaitTime
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6573758, guid: a0f56715f0778704db7aea20ffb0b863, type: 2}
       propertyPath: m_IsTrigger
