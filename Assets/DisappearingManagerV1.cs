@@ -43,7 +43,8 @@ public class DisappearingManagerV1 : MonoBehaviour {
                 allVisible = false;
         if (allVisible)
         {
-            index = Random.Range(0, _visibilitySelector.Length - 1);
+            index = Random.Range(0, 1000)%_visibilitySelector.Length;
+
             _visibilitySelector[index] = false;
         }
         if (_timerPlaneDisappearInterval <= 0)
